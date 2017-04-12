@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span{
+            display: block;            
+        }
+        .wx{
+            width: 155px;
+            height: 21px;
+            background: url("./images/stark2.png");
+        }
+        .wx2{
+            width: 5%;
+            height: 21px;
+            /*background-image:  url("./images/stars2.png");*/
+            float: left;
+        }
+        .wx3{
+            background-position: -8px 0;
+        }
+        .wx4{
+            background-position: -15px 0;
+        }
+        .wx5{
+            background-position: -23px 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <span class="wx">
+        <span class="wx2"></span>
+        <span class="wx2 wx3"></span>
+        <span class="wx2 wx4"></span>
+        <span class="wx2 wx5"></span>
+        
+        <span class="wx2"></span>
+        <span class="wx2 wx3"></span>
+        <span class="wx2 wx4"></span>
+        <span class="wx2 wx5"></span>
+        
+        <span class="wx2"></span>
+        <span class="wx2 wx3"></span>
+        <span class="wx2 wx4"></span>
+        <span class="wx2 wx5"></span>
+        
+        <span class="wx2"></span>
+        <span class="wx2 wx3"></span>
+        <span class="wx2 wx4"></span>
+        <span class="wx2 wx5"></span>
+        
+        <span class="wx2"></span>
+        <span class="wx2 wx3"></span>
+        <span class="wx2 wx4"></span>
+        <span class="wx2 wx5"></span>
+        
+
+    </span>
+    <input type="text" class="fenshu"  value="">
+    <script src="./js/jquery-1.8.0.min.js"></script>
+<script>
+    var wxs = document.querySelectorAll('.wx2');
+    var fen;
+    for(var i=1;i<=wxs.length;i++){   
+        (function(i){
+            var wx = wxs[i-1];
+            wx.index=i;
+            wx.onmouseover=function(){
+                $(this).css('backgroundImage','url("./images/stars2.png")');
+                $(this).prevAll().css('backgroundImage','url("./images/stars2.png")');
+                $(this).nextAll().css('backgroundImage','none');   
+                // fen= this.index/4; 
+                fen=Math.round(this.index/4*10)/10;
+                var fenshu = document.querySelector('.fenshu');
+                fenshu.value=fen+'分';   
+            }
+        })(i) 
+    }
+</script>
+</body>
+</html>
