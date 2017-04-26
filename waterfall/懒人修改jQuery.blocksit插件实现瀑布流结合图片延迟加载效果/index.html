@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>懒人修改jQuery.blocksit插件实现瀑布流结合图片延迟加载效果</title>
+<style>
+*{ margin:0; padding:0; list-style:none;}
+#lanrenzhijia{position:relative;width:1000px; margin:0 auto;}
+.lanren{ width:174px;float:left;box-shadow: 0 1px 3px rgba(34,25,25,0.2);overflow:hidden;padding:5px; text-align:center; border:1px solid #DEDCDC; border-radius:3px; overflow:hidden;}
+.lanren:hover{box-shadow: 0 1px 3px rgba(34,25,25,0.5); border:1px solid #AFAFAF}
+.lanren img{ width:172px;margin-bottom:5px;}
+.lanren a{ color:#666; text-decoration:none; font-size:12px;}
+</style>
+</head>
+<body>
+<div id="lanrenzhijia">
+	
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/01.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/02.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/03.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/04.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/05.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/06.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/07.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/08.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/09.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/10.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/11.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/12.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/13.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/14.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/15.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/16.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/17.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/18.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/19.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/20.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/21.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/22.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/23.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/24.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/25.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/26.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/27.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/28.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/29.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/30.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/31.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/32.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/33.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/34.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/35.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/36.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/37.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/38.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/39.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="http://demo.lanrenzhijia.com/2014/pubu1215/images/pixel.gif" data-original="http://demo.lanrenzhijia.com/2014/pubu1215/images/40.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    
+</div>
+<script src="http://www.lanrenzhijia.com/ajaxjs/jquery.min.js"></script>
+<script src="js/jquery.lazyload.min.js"></script>
+<script src="js/blocksit.min.js"></script>
+<script>
+$(function(){
+	$("img.lazy").lazyload({		
+		load:function(){
+			$('#lanrenzhijia').BlocksIt({
+				numOfCol:5, //每行显示图片个数
+				offsetX: 8,
+				offsetY: 8
+			});
+		}
+	});	
+	$(window).scroll(function(){
+			// 当滚动到最底部以上50像素时， 加载新内容
+		if ($(document).height() - $(this).scrollTop() - $(this).height()<50){		
+			$('#lanrenzhijia').BlocksIt({
+				numOfCol:5, //每行显示图片个数
+				offsetX: 8,
+				offsetY: 8
+			});
+			$("img.lazy").lazyload();
+		}
+	});
+});
+</script>
+</body>
+</html>
