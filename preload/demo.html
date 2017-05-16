@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+    </div>
+</body>
+<script src="./jquery.min.js"></script>
+<script>
+    var imgs = [
+        './Chrysanthemum.jpg',
+        './Desert.jpg',
+        './Lighthouse.jpg',
+        './Penguins.jpg'
+    ]
+    var len = imgs.length,
+        count = 0;
+    load();
+    // 预加载图片
+    function load() {
+        var imgObj = new Image();
+        $(imgObj).on('load error', function() {
+            if (count >= len) {
+
+            } else {
+                load();
+            }
+            count++;
+        })
+        imgObj.src = imgs[count];
+        $('.box').append(imgObj);
+    }
+</script>
+
+</html>
