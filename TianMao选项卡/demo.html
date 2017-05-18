@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>天猫选项卡</title>
+    <script src="js/jquery-2.1.1.min.js"></script>
+</head>
+<style>
+    a {
+        color: #666;
+        text-decoration: none;
+    }
+    
+    .box {
+        overflow: hidden;
+        margin: 0 auto;
+        width: 800px;
+        background: url('./zc_back.png') no-repeat;
+        /*margin-top: 200px;*/
+    }
+    
+    #boxleft {
+        float: left;
+        width: 200px;
+        background-color: rgba(238, 238, 238, .95);
+        width: 200px;
+        height: 500px;
+    }
+    
+    ul>li {
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        list-style: none;
+        padding-left: 20px;
+        color: #666;
+        box-sizing: border-box;
+    }
+    
+    ul {
+        padding: 0;
+    }
+    
+    ul>li:hover {
+        cursor: pointer;
+    }
+    
+    #boxright {
+        background-color: rgba(238, 238, 238, .95);
+        margin-left: 200px;
+    }
+    
+    .sub {
+        padding-left: 20px;
+        border: 1px solid #999;
+        border-left: none;
+    }
+    
+    ul>li.active {
+        background-color: #fff;
+        color: #dd2727;
+    }
+    
+    dl {
+        overflow: hidden;
+    }
+    
+    dl>dt,
+    dl>dd {
+        float: left;
+        color: #666;
+    }
+    
+    .no {
+        display: none;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div id="boxleft">
+            <ul>
+                <li data-id='1'>女装/内衣</li>
+                <li data-id='2'>男装/户外运动</li>
+                <li data-id='3'>女鞋/男鞋/箱包</li>
+                <li data-id='4'>化妆品/个人护理</li>
+                <li data-id='5'>腕表/珠宝饰品/眼镜</li>
+                <li data-id='6'>手机/数码/电脑办公</li>
+                <li data-id='7'>母婴玩具</li>
+                <li data-id='8'>零食/进口食品/茶酒</li>
+                <li data-id='9'>生鲜水果</li>
+                <li data-id='10'>大家电/生活电器</li>
+            </ul>
+        </div>
+        <div id="boxright" class="no">
+            <div class="sub no" id="1">
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士外套 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士内搭 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">时尚男装 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">时尚男鞋 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">气质男裤 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">气质内裤 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+            </div>
+            <div class="sub no" id="2">
+                <dl>
+                    <dt><a href="#">断码鞋 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">潮流男鞋 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">装逼包 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">功能箱包 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">精品男包 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士外套 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士内搭 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">时尚男装 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+            </div>
+            <div class="sub no" id="3">
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士外套 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士外套 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士外套 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士外套 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士外套 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士内搭 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">时尚男装 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+            </div>
+            <div class="sub no" id="4">
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士外套 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士内搭 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">时尚男装 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+            </div>
+            <div class="sub no" id="5">
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士外套 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士内搭 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">时尚男装 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+            </div>
+            <div class="sub no" id="6">
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士外套 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士内搭 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">时尚男装 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+            </div>
+            <div class="sub no" id="7">
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士外套 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士内搭 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">时尚男装 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+            </div>
+            <div class="sub no" id="8">
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士外套 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士内搭 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">时尚男装 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+            </div>
+            <div class="sub no" id="9">
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士外套 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士内搭 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+            </div>
+            <div class="sub no" id="10">
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">当季流行 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士外套 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">男士内搭 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+                <dl>
+                    <dt><a href="#">时尚男装 <i>&gt</i></a></dt>
+                    <dd>夏季新品</dd>
+                    <dd>商品同款</dd>
+                    <dd>气质连衣裙</dd>
+                    <dd>夏季新品</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/chacheng.js"></script>
+<script src="./js/demo.js"></script>
+<script>
+    $('p').on('click', 'span', function(e) {
+        console.log(e);
+        alert(1)
+    })
+</script>
+
+</html>
