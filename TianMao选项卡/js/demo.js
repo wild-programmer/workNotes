@@ -1,4 +1,5 @@
 $(function() {
+    // 里面就牵扯到的有 active定义的隐藏 还有三个类名boxright sub box
     var $boxright = $('#boxright');
     var $sub = $('.sub');
     var activeRow,
@@ -24,6 +25,7 @@ $(function() {
         }
     }
 
+    // 记录了大盒子的上边的鼠标位置
     $('.box').on('mouseenter', function(e) {
         // 为了布局严谨，让二级菜单的大盒子隐藏
         $boxright.removeClass('no');
@@ -54,7 +56,7 @@ $(function() {
         // 拿到鼠标当前坐标
         var currMousePos = moseTrack[moseTrack.length - 1]; //鼠标当前坐标
         var leftCorner = moseTrack[moseTrack.length - 2]; //上一次(a)点坐标
-        var delay = needDelay($boxright, leftCorner, currMousePos);
+        var delay = needDelay($boxright, leftCorner, currMousePos); //   ***此处使用时重点  第一个参数是二级菜单的大盒子，用户叉乘判断***
         // 如果在三角形内需要延迟
         if (delay) {
             // 计时器用于从Li标签移动到二级菜单经过其他Li标签li标签也不会改变样式
