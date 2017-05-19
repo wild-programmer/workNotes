@@ -56,10 +56,10 @@ $(function() {
         // 拿到鼠标当前坐标
         var currMousePos = moseTrack[moseTrack.length - 1]; //鼠标当前坐标
         var leftCorner = moseTrack[moseTrack.length - 2]; //上一次(a)点坐标
-        var delay = needDelay($boxright, leftCorner, currMousePos); //   ***此处使用时重点  第一个参数是二级菜单的大盒子，用户叉乘判断***
+        var delay = chacheng.needDelay($boxright, leftCorner, currMousePos); //   ***此处使用时重点  第一个参数是二级菜单的大盒子，用户叉乘判断***
         // 如果在三角形内需要延迟
         if (delay) {
-            // 计时器用于从Li标签移动到二级菜单经过其他Li标签li标签也不会改变样式
+            // 计时器用于从Li标签移动到二级菜单经过其他Li标签,这些li标签也不会改变样式
             time = setTimeout(function() {
                 if (mouseInsub) {
                     return;
