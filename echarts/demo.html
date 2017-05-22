@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>echarts是真简单了</title>
+    <script src="./echarts.js"></script>
+</head>
+
+<body>
+    <div id="main" style="width: 600px;height:400px;"></div>
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    option = {
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: { //图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
+            orient: 'vertical',
+            x: 'left',
+            data: ['CARD', 'SSD', 'U盘', '嵌入式', 'FLASH']
+        },
+        series: [{
+            name: '库存情况',
+            type: 'pie',
+            // radius: '68%', //饼图的半径，数组的第一项是内半径，第二项是外半径。
+            radius: ['30%', '70%'],
+            center: ['50%', '60%'], //设置饼图的中心
+            clockwise: false, //是否是顺时针
+            data: [{
+                value: 45,
+                name: 'CARD'
+            }, {
+                value: 25,
+                name: 'SSD'
+            }, {
+                value: 15,
+                name: 'U盘'
+            }, {
+                value: 8,
+                name: '嵌入式'
+            }, {
+                value: 7,
+                name: 'FLASH'
+            }],
+            label: { //图形上的文本标签，可用于说明图形的一些数据信息
+                normal: {
+                    show: true,
+                    textStyle: {
+                        color: '#999',
+                        fontSize: '14px',
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: true //是否显示视图引导线
+                }
+            },
+            itemStyle: {
+                normal: {
+                    borderWidth: 4, //边框大小
+                    borderColor: 'white',
+                },
+                emphasis: {
+                    borderWidth: 0, //鼠标触发后的边框大小
+                    shadowBlur: 10, //图形阴影模糊大小
+                    shadowOffsetX: 3, //盒子阴影的偏移
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }],
+        color: [
+            '#00acee',
+            '#52cdd5',
+            '#79d9f1',
+            '#a7e7ff',
+            '#c8efff'
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+</html>
