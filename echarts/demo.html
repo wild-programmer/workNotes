@@ -27,25 +27,42 @@
         series: [{
             name: '库存情况',
             type: 'pie',
+            selectedMode: 'single', //表示是否支持多个选中，默认关闭，'single'，'multiple'，分别表示单选还是多选。
+            selectedOffset: 8, //选中扇区的偏移距离
             // radius: '68%', //饼图的半径，数组的第一项是内半径，第二项是外半径。
             radius: ['30%', '70%'],
             center: ['50%', '60%'], //设置饼图的中心
             clockwise: false, //是否是顺时针
             data: [{
                 value: 45,
-                name: 'CARD'
+                name: 'CARD',
+                textStyle: {
+                    color: 'red',
+                }
             }, {
                 value: 25,
-                name: 'SSD'
+                name: 'SSD',
+                textStyle: {
+                    color: 'pink',
+                }
             }, {
                 value: 15,
-                name: 'U盘'
+                name: 'U盘',
+                textStyle: {
+                    color: 'hotpink',
+                }
             }, {
                 value: 8,
-                name: '嵌入式'
+                name: '嵌入式',
+                textStyle: {
+                    color: 'blue',
+                }
             }, {
                 value: 7,
-                name: 'FLASH'
+                name: 'FLASH',
+                textStyle: {
+                    color: 'gold',
+                }
             }],
             label: { //图形上的文本标签，可用于说明图形的一些数据信息
                 normal: {
@@ -61,12 +78,27 @@
                     show: true //是否显示视图引导线
                 }
             },
-            itemStyle: {
+            itemStyle: { //鼠标移动上去之前的样式
                 normal: {
-                    borderWidth: 4, //边框大小
+                    // color: {  //颜色渐变
+                    //     type: 'linear', //linear radial
+                    //     x: 0,
+                    //     y: 0,
+                    //     x2: 0,
+                    //     y2: 1,
+                    //     colorStops: [{
+                    //         offset: 0,
+                    //         color: 'red' // 0% 处的颜色
+                    //     }, {
+                    //         offset: 1,
+                    //         color: 'blue' // 100% 处的颜色
+                    //     }],
+                    //     globalCoord: false // 缺省为 false为 `true`，则该四个值是绝对的像素位置
+                    // },
+                    borderWidth: 2, //边框大小
                     borderColor: 'white',
                 },
-                emphasis: {
+                emphasis: { //鼠标触发后的
                     borderWidth: 0, //鼠标触发后的边框大小
                     shadowBlur: 10, //图形阴影模糊大小
                     shadowOffsetX: 3, //盒子阴影的偏移
@@ -75,11 +107,11 @@
             }
         }],
         color: [
-            '#00acee',
-            '#52cdd5',
-            '#79d9f1',
-            '#a7e7ff',
-            '#c8efff'
+            'gold',
+            'pink',
+            'hotpink',
+            'blue',
+            'skyblue'
         ]
     };
     // 使用刚指定的配置项和数据显示图表。
