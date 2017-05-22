@@ -36,32 +36,52 @@
             data: [{
                 value: 45,
                 name: 'CARD',
-                textStyle: {
-                    color: 'red',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'gold',
+                        }
+                    }
                 }
             }, {
                 value: 25,
                 name: 'SSD',
-                textStyle: {
-                    color: 'pink',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'pink',
+                        }
+                    }
                 }
             }, {
                 value: 15,
                 name: 'U盘',
-                textStyle: {
-                    color: 'hotpink',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'hotred',
+                        }
+                    }
                 }
             }, {
                 value: 8,
                 name: '嵌入式',
-                textStyle: {
-                    color: 'blue',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'blue',
+                        }
+                    }
                 }
             }, {
                 value: 7,
                 name: 'FLASH',
-                textStyle: {
-                    color: 'gold',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'skyblue',
+                        }
+                    }
                 }
             }],
             label: { //图形上的文本标签，可用于说明图形的一些数据信息
@@ -75,7 +95,11 @@
             },
             labelLine: {
                 normal: {
-                    show: true //是否显示视图引导线
+                    show: true, //是否显示视图引导线
+                    length: 20, //引导线的长度
+                    lineStyle: { // 不写Linstyle颜色  就默认和对应饼图颜色一样
+                        color: '#000'
+                    }
                 }
             },
             itemStyle: { //鼠标移动上去之前的样式
