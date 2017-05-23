@@ -35,7 +35,7 @@ var chacheng = {
         }
         var bottomLeft = {
             x: offset.left,
-            y: offset.top + elem.height()
+            y: offset.top + elem.height(),
         }
         return this.isPointInTrangle(currMousepos, leftCorner, topLeft, bottomLeft)
     }
