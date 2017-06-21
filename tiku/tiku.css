@@ -1,0 +1,505 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #eeeeee;
+  font-family: "微软雅黑", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+  padding-bottom: 100px;
+}
+textarea {
+  resize: none;
+}
+li {
+  list-style: none;
+  direction: none;
+}
+ul,
+p {
+  padding: 0;
+  margin: 0;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+/* css骇客 */
+.clearfix {
+  *zoom: 1;
+  /*IE/7/6*/
+}
+.content {
+  width: 1000px;
+  margin: 0 auto;
+  padding-top: 15px;
+  background-color: white;
+  padding-bottom: 100px;
+}
+.content .topnav {
+  background-color: #0095da;
+}
+.content .topnav li {
+  height: 42px;
+  line-height: 42px;
+  float: left;
+}
+.content .topnav li span {
+  font-size: 14px;
+  cursor: pointer;
+  padding: 5px 10px 5px 40px;
+  border-right: 1px solid#075DB3;
+  color: white;
+  position: relative;
+}
+.content .topnav li span::before {
+  content: '';
+  display: block;
+  height: 20px;
+  width: 23px;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  background: url('img/icoall.png') no-repeat;
+}
+.content .topnav li .span1::before {
+  background-position: -412px -137px;
+}
+.content .topnav li .span2::before {
+  background-position: -358px -68px;
+}
+.content .topnav li .span3::before {
+  background-position: -415px -68px;
+}
+.content .topnav li .span4::before {
+  background-position: -358px -100px;
+}
+.content .topnav li .span5::before {
+  background-position: -358px -133px;
+}
+.content .topnav li .span6::before {
+  background-position: -415px -89px;
+}
+.content .topnav li .span7::before {
+  background-position: -415px -112px;
+}
+.content .contcommon {
+  margin: 5px 0 0;
+  border: 1px solid #0095da;
+  padding: 8px;
+  width: 825px;
+}
+.content .contcommon .datauptext {
+  font-size: 15px;
+  color: #444444;
+  font-weight: bold;
+  height: auto;
+  height: 50px;
+  line-height: 50px;
+  float: left;
+  margin-right: 10px;
+  padding-left: 5px;
+}
+.content .contcommon .datauptext span {
+  float: left;
+}
+.content .contcommon .datauptext .datatext {
+  color: red;
+  margin-left: 5px;
+  display: none;
+}
+.content .contcommon .inputtext {
+  height: 22px;
+  overflow: auto;
+  width: 485px;
+}
+.content .contcommon .duoxuantext {
+  height: 50px;
+  line-height: 50px;
+  color: #0066FF;
+  font-weight: normal;
+  font-size: 14px;
+  display: none;
+}
+.content .contcommon .duoxuanshow {
+  display: block;
+}
+.content .contcommon .xuanze_item {
+  clear: both;
+  padding-top: 5px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #EFEFEF;
+  font-size: 15px;
+  padding-left: 20px;
+  color: #333333;
+}
+.content .contcommon .xuanze_item > p {
+  padding-left: 20px;
+  min-height: 25px;
+  line-height: 25px;
+  padding-bottom: 10px;
+  position: relative;
+}
+.content .contcommon .xuanze_item > p input {
+  background-color: white;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  margin: 0 5px;
+}
+.content .contcommon .xuanze_item > p .xuanze_wx {
+  color: red;
+}
+.content .contcommon .xuanze_item > p .xz_image {
+  display: block;
+  float: right;
+  max-width: 80%;
+  overflow: auto;
+}
+.content .contcommon .xuanze_item > p::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 16px;
+  position: absolute;
+  left: 0;
+  top: 2px;
+  background: url('img/radio.gif') no-repeat;
+}
+.content .contcommon .xuanze_item .xxactive::before {
+  background-position: 0 -16px;
+}
+.content .contcommon .panduanicon > p::before {
+  background: url('img/checkbox.gif') no-repeat;
+}
+.content .contcommon .setting {
+  font-size: 12px;
+  padding-top: 5px;
+  margin-top: 10px;
+  border-top: 1px solid white;
+}
+.content .contcommon .setting ul {
+  float: right;
+}
+.content .contcommon .setting li {
+  height: 25px;
+  line-height: 25px;
+  width: 44px;
+  padding: 0 6px;
+  float: left;
+  border: 1px solid #85c449;
+  border-radius: 4px;
+  margin: 0px 4px;
+  cursor: pointer;
+}
+.content .contcommon .setting li span {
+  padding-left: 18px;
+  position: relative;
+}
+.content .contcommon .setting li span::before {
+  content: '';
+  display: block;
+  width: 17px;
+  height: 16px;
+  background-color: red;
+  position: absolute;
+  left: 0px;
+  top: 0;
+  background: url('img/icoall.png') no-repeat;
+}
+.content .contcommon .setting li .span1::before {
+  background-position: -49px -43px;
+}
+.content .contcommon .setting li .span1succed::before {
+  background-position: -105px -76px;
+}
+.content .contcommon .setting li .span2::before {
+  background-position: -107px -42px;
+}
+.content .contcommon .setting li .span3::before {
+  background-position: -166px -42px;
+}
+.content .contcommon .setting li .span4::before {
+  background-position: -226px -43px;
+}
+.content .contcommon .setting li .span5::before {
+  background-position: -287px -43px;
+}
+.content .contcommon .setting li .span6::before {
+  background-position: -346px -43px;
+}
+.content .contcommon .setting li .span7::before {
+  background-position: -406px -43px;
+}
+.content .contcommon .text {
+  text-align: center;
+  margin-top: 20px;
+  background: none repeat scroll 0 0 #eff9fe;
+}
+.content .contcommon .text .textl {
+  float: left;
+}
+.content .contcommon .text .textl textarea {
+  width: 388px;
+  height: 70px;
+  overflow: auto;
+  padding: 5px 0px 0px 5px;
+  border: 1px solid #dddddd;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.content .contcommon .text .textr {
+  margin-left: 405px;
+  padding: 7px 0px 0px 5px;
+}
+.content .contcommon .text .textr p {
+  font-size: 14px;
+  color: #6a6a6a;
+  text-align: left;
+}
+.content .contcommon .text .textr p span {
+  font-weight: 600;
+}
+.content .contcommon .text .textr p select {
+  height: 22px;
+  line-height: 22px;
+  padding: 0px 6px;
+  border: solid 1px #a9a9a9;
+}
+.content .contcommon .text .textr p input[type="checkbox"] {
+  vertical-align: text-bottom;
+}
+.content .contcommon .text .selectT {
+  padding: 5px 0px 0px 5px;
+  width: 772px;
+  margin-left: 10px;
+  background: #e1e0e0;
+}
+.content .contcommon .text .selectT li {
+  float: left;
+  font-size: 14px;
+  padding: 3px 5px;
+  color: #333333;
+  height: 19px;
+  line-height: 19px;
+  text-align: left;
+  cursor: pointer;
+}
+.content .contcommon .text .selectT .firstli {
+  width: 168px;
+}
+.content .contcommon .text .selectT .firstli span {
+  position: relative;
+  cursor: pointer;
+}
+.content .contcommon .text .selectT .firstli span::before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 14px;
+  position: absolute;
+  right: -15px;
+  top: 4px;
+  background: url('img/icoall.png') no-repeat;
+  background-position: -80px -77px;
+}
+.content .contcommon .text .selectlist {
+  padding: 5px 0px 0px 5px;
+  margin-left: 6px;
+}
+.content .contcommon .text .selectlist li {
+  margin-top: 5px;
+  cursor: pointer;
+}
+.content .contcommon .text .selectlist input[type="text"] {
+  width: 158px;
+  height: 18px;
+  padding: 2px 3px;
+  font-size: 14px;
+  border: solid 1px #cdcdcd;
+  float: left;
+}
+.content .contcommon .text .selectlist .image {
+  float: left;
+  width: 19px;
+  height: 17px;
+  background: url('img/icoall.png') no-repeat;
+  background-position: -52px -220px;
+  margin: 0 30px 0 20px;
+  margin-top: 2px;
+}
+.content .contcommon .text .selectlist .checbox {
+  padding-top: 2px;
+  float: left;
+  width: 80px;
+}
+.content .contcommon .text .selectlist .checbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  display: inline-block;
+}
+.content .contcommon .text .selectlist .checbox .chechide {
+  display: none;
+  float: right;
+}
+.content .contcommon .text .selectlist .checbox .chechide input[type="checkbox"] {
+  float: right;
+}
+.content .contcommon .text .selectlist .checbox span {
+  margin: 0 5px;
+  float: right;
+  margin-top: -2px;
+}
+.content .contcommon .text .selectlist .moren {
+  float: left;
+  width: 18px;
+  height: 18px;
+  margin-left: 30px;
+}
+.content .contcommon .text .selectlist p {
+  float: left;
+  margin-left: 50px;
+}
+.content .contcommon .text .selectlist p span {
+  display: block;
+  margin-right: 3px;
+  width: 20px;
+  height: 20px;
+  float: left;
+  background: url('img/icoall.png');
+  cursor: pointer;
+}
+.content .contcommon .text .selectlist p .span1 {
+  background-position: -49px -113px;
+}
+.content .contcommon .text .selectlist p .span2 {
+  background-position: -72px -113px;
+}
+.content .contcommon .text .selectlist p .span3 {
+  background-position: -96px -113px;
+}
+.content .contcommon .text .selectlist p .span4 {
+  background-position: -119px -113px;
+}
+.content .contcommon .text .mingzfenshu {
+  padding: 5px 0px 0px 5px;
+  margin-left: 6px;
+  text-align: left;
+  font-size: 14px;
+}
+.content .contcommon .text button {
+  margin: 20px 0;
+  width: 775px;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  border: 0;
+  cursor: pointer;
+  background: #f17819;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0 15px;
+  overflow: visible;
+}
+.content .conthidden {
+  border: 2px solid  white;
+}
+.content .conthidden:hover {
+  border: 2px solid #fdb553;
+}
+.display {
+  display: none;
+}
+.hover {
+  visibility: hidden;
+}
+.contcommon:hover .hover {
+  visibility: visible;
+}
+.imgDBG {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1111;
+}
+.imgDBG .imgbox {
+  color: #222;
+  width: 658px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: white;
+  border-radius: 10px;
+  z-index: 2222;
+  opacity: 1;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+.imgDBG .imgbox .tishi {
+  text-align: left;
+  font-size: 16px;
+}
+.imgDBG .imgbox .tishi .delicon {
+  width: 27px;
+  height: 27px;
+  display: block;
+  float: right;
+  background: url('img/del.png') no-repeat;
+  margin-top: -5px;
+  cursor: pointer;
+}
+.imgDBG .imgbox li {
+  margin-top: 50px;
+  position: relative;
+}
+.imgDBG .imgbox li > p {
+  width: 200px;
+  height: 26px;
+  line-height: 26px;
+  font-size: 14px;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #d5d5d5;
+  cursor: pointer;
+}
+.imgDBG .imgbox li input {
+  width: 200px;
+  height: 26px;
+  position: absolute;
+  left: 70px;
+  top: 0;
+  opacity: 0;
+}
+.imgDBG .imgbox .tishi2 {
+  margin-top: 30px;
+  margin-bottom: 5px;
+  color: #ff6600;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+.imgDBG .imgbox .image {
+  border: 1px solid #dbdbdb;
+  height: 230px;
+  margin-top: 5px;
+  overflow: auto;
+  width: 480px;
+  margin: 0 auto;
+}
+.imgDBG .tsp {
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.template {
+  display: none;
+}

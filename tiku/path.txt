@@ -1,0 +1,8 @@
+E:\wamp\www\v4.0\App\View
+
+服务器地址
+http://v40.mm/Cms/Lease/Sendpictures/
+测试服地址
+http://localtest4.t.88art.com/Cms/Member/artistData/
+
+https://www.sojump.com/mysojump/createblank.aspx

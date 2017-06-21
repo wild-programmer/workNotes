@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./tiku.css">
+    <script src="./jquery.js"></script>
+    <script src="./tiku.js"></script>
+</head>
+
+<body>
+    <div class="imgDBG">
+        <div class="imgbox">
+            <p class="tishi">选项1 <span class="delicon"></span></p>
+            <li>上传图片
+                <p><input type="file">选择图片(最大2M)</p>
+            </li>
+            <p class="tishi2">预览图片：</p>
+            <div class="image"></div>
+            <p class="tsp">确定</p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="topnav clearfix">
+            <ul class="clearfix">
+                <li>
+                    <span data-id="name" class="span1">姓名</span>
+                </li>
+                <li>
+                    <span data-id="danxuan" class="span2">单选</span>
+                </li>
+                <li>
+                    <span data-id="panduan" class="span3">判断</span>
+                </li>
+                <li>
+                    <span data-id="duoxuan" class="span4">多选</span>
+                </li>
+                <li>
+                    <span data-id="tiankong" class="span5">单项填空</span>
+                </li>
+                <li>
+                    <span data-id="tiankongs" class="span6">多项填空</span>
+                </li>
+                <li>
+                    <!--<span data-id="jiand" class="span7">简答</span>-->
+                </li>
+            </ul>
+        </div>
+        <div class="cont">
+
+        </div>
+    </div>
+    <div class="template">
+        <div class="tiankongs contcommon conthidden">
+            <div class="timuname clearfix">
+                <p class="datauptext "><span class="updatatext">请在此输入多项填空标题：</span><span class="datatext">*</span></p>
+            </div>
+            <textarea class="inputtext" name="" id="" cols="30" rows="1" disabled="disabled"></textarea>
+            <div class="setting clearfix">
+                <ul class="clearfix hover">
+                    <li><span class="span1 span1succed">编辑</span></li>
+                    <li><span class="span3">删除</span></li>
+                    <li><span class="span4">上移</span></li>
+                    <li><span class="span5">下移</span></li>
+                    <li><span class="span6">最前</span></li>
+                    <li><span class="span7">最后</span></li>
+                </ul>
+            </div>
+            <div class="text clearfix display">
+                <div class="textl ">
+                    <textarea class="databind" name="" id="" cols="30" rows="10" placeholder="请在此输入问题标题："></textarea>
+                </div>
+                <div class="textr clearfix ">
+                    <p>
+                        <input name="BiDa" type="checkbox" value="" />必答题
+                    </p>
+                </div>
+                <button type="button">完成编辑</button>
+            </div>
+        </div>
+        <div class="tiankong contcommon conthidden">
+            <div class="timuname clearfix">
+                <p class="datauptext "><span class="updatatext">请在此输入单项填空问题标题：</span><span class="datatext">*</span></p>
+            </div>
+            <textarea class="inputtext" name="" id="" cols="30" rows="1" disabled="disabled"></textarea>
+            <div class="setting clearfix">
+                <ul class="clearfix hover">
+                    <li><span class="span1 span1succed">编辑</span></li>
+                    <li><span class="span3">删除</span></li>
+                    <li><span class="span4">上移</span></li>
+                    <li><span class="span5">下移</span></li>
+                    <li><span class="span6">最前</span></li>
+                    <li><span class="span7">最后</span></li>
+                </ul>
+            </div>
+            <div class="text clearfix display">
+                <div class="textl ">
+                    <textarea class="databind" name="" id="" cols="30" rows="10" placeholder="请在此输入问题标题："></textarea>
+                </div>
+                <div class="textr clearfix ">
+                    <p>
+                        <input name="BiDa" type="checkbox" value="" />必答题
+                    </p>
+                </div>
+                <button type="button">完成编辑</button>
+            </div>
+        </div>
+        <div class="name contcommon conthidden">
+            <div class="timuname clearfix">
+                <p class="datauptext "><span class="updatatext">您的姓名</span><span class="datatext">*</span></p>
+            </div>
+            <div class="setting clearfix">
+                <ul class="clearfix hover">
+                    <li><span class="span1 span1succed">编辑</span></li>
+                    <li><span class="span3">删除</span></li>
+                    <li><span class="span4">上移</span></li>
+                    <li><span class="span5">下移</span></li>
+                    <li><span class="span6">最前</span></li>
+                    <li><span class="span7">最后</span></li>
+                </ul>
+            </div>
+            <div class="text clearfix display">
+                <div class="textl ">
+                    <textarea class="databind" name="" id="" cols="30" rows="10" placeholder="请输入你的名字:"></textarea>
+                </div>
+                <div class="textr clearfix ">
+                    <p>
+                        <input name="BiDa" type="checkbox" value="" />必答题
+                    </p>
+                </div>
+                <button type="button">完成编辑</button>
+            </div>
+        </div>
+        <div class="panduan contcommon conthidden">
+            <div class="timuname clearfix">
+                <p class="datauptext "><span class="updatatext">请在这里输入问题标题</span><span class="datatext">*</span></p>
+                <!--如果是多选添加该类duoxuanshow  这个类会影响逻辑代码-->
+                <p class="duoxuantext duoxuanshow">[判断]</p>
+            </div>
+            <!--//如果是判断题就添加panduanicon类 若是选择题就删除这个类-->
+            <div class="xuanze_item panduanicon">
+                <p class="clearfix">
+                    <span class="xz_image"></span>
+                    <span class="xuanztext">选项</span> <input type="text" class="display"><span class="xuanze_wx display">*</span>
+                </p>
+                <p class="clearfix">
+                    <span class="xz_image"></span>
+                    <span class="xuanztext">选项</span> <input type="text" class="display"><span class="xuanze_wx display">*</span>
+                </p>
+            </div>
+            <div class="setting clearfix">
+                <ul class="clearfix hover">
+                    <li><span class="span1 span1succed">编辑</span></li>
+                    <li><span class="span3">删除</span></li>
+                    <li><span class="span4">上移</span></li>
+                    <li><span class="span5">下移</span></li>
+                    <li><span class="span6">最前</span></li>
+                    <li><span class="span7">最后</span></li>
+                </ul>
+            </div>
+            <div class="text clearfix display">
+                <div class="textl selectname">
+                    <textarea class="databind" name="" id="" cols="30" rows="10" placeholder="请在这里输入问题标题:"></textarea>
+                </div>
+                <div class="textr clearfix selectname">
+                    <p>
+                        <input name="BiDa" type="checkbox" value="" />必答题
+                    </p>
+                </div>
+                <div class="selectT clearfix selectonly">
+                    <ul>
+                        <li class="firstli">
+                            <span>选项文字</span>
+                        </li>
+                        <li style="width:50px">图片</li>
+                        <li style="width:85px">允许填空</li>
+                        <li style="width:90px">默认</li>
+                        <li>操作</li>
+                    </ul>
+                </div>
+                <div class="selectlist clearfix">
+                    <ul class="selectlistalt">
+                        <li class="clearfix">
+                            <input type="text" placeholder="选项">
+                            <div class="image showDBG"></div>
+                            <div class="checbox ">
+                                <div class="chechide clearfix">
+                                    <input type="checkbox" name="yxbit">
+                                    <span>必填</span>
+                                </div>
+                                <input type="checkbox" name="yunxu">
+
+                            </div>
+                            <input class="moren" name="moren" type="checkbox">
+                            <p>
+                                <span class="span1"></span>
+                                <span class="span2"></span>
+                                <span class="span3"></span>
+                                <span class="span4"></span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <input type="text" placeholder="选项">
+                            <div class="image showDBG"></div>
+                            <div class="checbox ">
+                                <div class="chechide clearfix">
+                                    <input type="checkbox" name="yxbit">
+                                    <span>必填</span>
+                                </div>
+                                <input type="checkbox" name="yunxu">
+
+                            </div>
+                            <input class="moren" name="moren" type="checkbox">
+                            <p>
+                                <span class="span1"></span>
+                                <span class="span2"></span>
+                                <span class="span3"></span>
+                                <span class="span4"></span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <p class="mingzfenshu">
+                    题目分数：
+                    <select class="fenshutext" name="" id="" onmousedown="if(this.options.length>10){this.size=11}" onblur="this.size=0" onchange="this.size=0">
+                            <option value="0.5">0.5</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="10">11</option>
+                            <option value="10">12</option>
+                            <option value="10">13</option>
+                            <option value="10">14</option>
+                            <option value="10">15</option>
+                            <option value="10">16</option>
+                            <option value="10">17</option>
+                            <option value="10">18</option>
+                            <option value="10">19</option>
+                            <option value="10">20</option>
+                            <option value="10">21</option>
+                            <option value="10">22</option>
+                            <option value="10">23</option>
+                            <option value="10">24</option>
+                            <option value="10">25</option>
+                            <option value="10">26</option>
+                            <option value="10">27</option>
+                            <option value="10">28</option>
+                            <option value="10">29</option>
+                            <option value="10">30</option>
+                    </select>
+                </p>
+                <button type="button">完成编辑</button>
+            </div>
+        </div>
+        <div class="duoxuan contcommon conthidden">
+            <div class="timuname clearfix">
+                <p class="datauptext "><span class="updatatext">请在这里输入问题标题</span><span class="datatext">*</span></p>
+                <!--如果是多选添加该类duoxuanshow  这个类会影响逻辑代码-->
+                <p class="duoxuantext duoxuanshow">[多选题]</p>
+            </div>
+            <!--//如果是判断题就手动添加panduanicon类 若是选择题就删除这个类-->
+            <div class="xuanze_item">
+                <p class="clearfix">
+                    <span class="xz_image"></span>
+                    <span class="xuanztext">选项</span> <input type="text" class="display"><span class="xuanze_wx display">*</span>
+                </p>
+                <p class="clearfix">
+                    <span class="xz_image"></span>
+                    <span class="xuanztext">选项</span> <input type="text" class="display"><span class="xuanze_wx display">*</span>
+                </p>
+            </div>
+            <div class="setting clearfix">
+                <ul class="clearfix hover">
+                    <li><span class="span1 span1succed">编辑</span></li>
+                    <li><span class="span3">删除</span></li>
+                    <li><span class="span4">上移</span></li>
+                    <li><span class="span5">下移</span></li>
+                    <li><span class="span6">最前</span></li>
+                    <li><span class="span7">最后</span></li>
+                </ul>
+            </div>
+            <div class="text clearfix display">
+                <div class="textl selectname">
+                    <textarea class="databind" name="" id="" cols="30" rows="10" placeholder="请在这里输入问题标题:"></textarea>
+                </div>
+                <div class="textr clearfix selectname">
+                    <p>
+                        <input name="BiDa" type="checkbox" value="" />必答题
+                    </p>
+                </div>
+                <div class="selectT clearfix selectonly">
+                    <ul>
+                        <li class="firstli">
+                            <span>选项文字</span>
+                        </li>
+                        <li style="width:50px">图片</li>
+                        <li style="width:85px">允许填空</li>
+                        <li style="width:90px">默认</li>
+                        <li>操作</li>
+                    </ul>
+                </div>
+                <div class="selectlist clearfix">
+                    <ul class="selectlistalt">
+                        <li class="clearfix">
+                            <input type="text" placeholder="选项">
+                            <div class="image showDBG"></div>
+                            <div class="checbox ">
+                                <div class="chechide clearfix">
+                                    <input type="checkbox" name="yxbit">
+                                    <span>必填</span>
+                                </div>
+                                <input type="checkbox" name="yunxu">
+
+                            </div>
+                            <input class="moren" name="moren" type="checkbox">
+                            <p>
+                                <span class="span1"></span>
+                                <span class="span2"></span>
+                                <span class="span3"></span>
+                                <span class="span4"></span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <input type="text" placeholder="选项">
+                            <div class="image showDBG"></div>
+                            <div class="checbox ">
+                                <div class="chechide clearfix">
+                                    <input type="checkbox" name="yxbit">
+                                    <span>必填</span>
+                                </div>
+                                <input type="checkbox" name="yunxu">
+
+                            </div>
+                            <input class="moren" name="moren" type="checkbox">
+                            <p>
+                                <span class="span1"></span>
+                                <span class="span2"></span>
+                                <span class="span3"></span>
+                                <span class="span4"></span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <p class="mingzfenshu">
+                    题目分数：
+                    <select class="fenshutext" name="" id="" onmousedown="if(this.options.length>10){this.size=11}" onblur="this.size=0" onchange="this.size=0">
+                            <option value="0.5">0.5</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="10">11</option>
+                            <option value="10">12</option>
+                            <option value="10">13</option>
+                            <option value="10">14</option>
+                            <option value="10">15</option>
+                            <option value="10">16</option>
+                            <option value="10">17</option>
+                            <option value="10">18</option>
+                            <option value="10">19</option>
+                            <option value="10">20</option>
+                            <option value="10">21</option>
+                            <option value="10">22</option>
+                            <option value="10">23</option>
+                            <option value="10">24</option>
+                            <option value="10">25</option>
+                            <option value="10">26</option>
+                            <option value="10">27</option>
+                            <option value="10">28</option>
+                            <option value="10">29</option>
+                            <option value="10">30</option>
+                    </select>
+                </p>
+                <button type="button">完成编辑</button>
+            </div>
+        </div>
+        <div class="danxuan contcommon conthidden">
+            <div class="timuname clearfix">
+                <p class="datauptext "><span class="updatatext">请在这里输入问题标题</span><span class="datatext">*</span></p>
+                <!--如果是多选添加该类duoxuanshow  这个类会影响逻辑代码-->
+                <p class="duoxuantext">[多选题]</p>
+            </div>
+            <!--//如果是判断题就手动添加panduanicon类 若是选择题就删除这个类-->
+            <div class="xuanze_item">
+                <p class="clearfix">
+                    <span class="xz_image"></span>
+                    <span class="xuanztext">选项</span> <input type="text" class="display"><span class="xuanze_wx display">*</span>
+                </p>
+                <p class="clearfix">
+                    <span class="xz_image"></span>
+                    <span class="xuanztext">选项</span> <input type="text" class="display"><span class="xuanze_wx display">*</span>
+                </p>
+            </div>
+            <div class="setting clearfix">
+                <ul class="clearfix hover">
+                    <li><span class="span1 span1succed">编辑</span></li>
+                    <li><span class="span3">删除</span></li>
+                    <li><span class="span4">上移</span></li>
+                    <li><span class="span5">下移</span></li>
+                    <li><span class="span6">最前</span></li>
+                    <li><span class="span7">最后</span></li>
+                </ul>
+            </div>
+            <div class="text clearfix display">
+                <div class="textl selectname">
+                    <textarea class="databind" name="" id="" cols="30" rows="10" placeholder="请在这里输入问题标题:"></textarea>
+                </div>
+                <div class="textr clearfix selectname">
+                    <p>
+                        <input name="BiDa" type="checkbox" value="" />必答题
+                    </p>
+                </div>
+                <div class="selectT clearfix selectonly">
+                    <ul>
+                        <li class="firstli">
+                            <span>选项文字</span>
+                        </li>
+                        <li style="width:50px">图片</li>
+                        <li style="width:85px">允许填空</li>
+                        <li style="width:90px">默认</li>
+                        <li>操作</li>
+                    </ul>
+                </div>
+                <div class="selectlist clearfix">
+                    <ul class="selectlistalt">
+                        <li class="clearfix">
+                            <input type="text" placeholder="选项">
+                            <div class="image showDBG"></div>
+                            <div class="checbox ">
+                                <div class="chechide clearfix">
+                                    <input type="checkbox" name="yxbit">
+                                    <span>必填</span>
+                                </div>
+                                <input type="checkbox" name="yunxu">
+
+                            </div>
+                            <input class="moren" name="moren" type="checkbox">
+                            <p>
+                                <span class="span1"></span>
+                                <span class="span2"></span>
+                                <span class="span3"></span>
+                                <span class="span4"></span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <input type="text" placeholder="选项">
+                            <div class="image showDBG"></div>
+                            <div class="checbox ">
+                                <div class="chechide clearfix">
+                                    <input type="checkbox" name="yxbit">
+                                    <span>必填</span>
+                                </div>
+                                <input type="checkbox" name="yunxu">
+
+                            </div>
+                            <input class="moren" name="moren" type="checkbox">
+                            <p>
+                                <span class="span1"></span>
+                                <span class="span2"></span>
+                                <span class="span3"></span>
+                                <span class="span4"></span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <p class="mingzfenshu">
+                    题目分数：
+                    <select class="fenshutext" name="" id="" onmousedown="if(this.options.length>10){this.size=11}" onblur="this.size=0" onchange="this.size=0">
+                            <option value="0.5">0.5</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="10">11</option>
+                            <option value="10">12</option>
+                            <option value="10">13</option>
+                            <option value="10">14</option>
+                            <option value="10">15</option>
+                            <option value="10">16</option>
+                            <option value="10">17</option>
+                            <option value="10">18</option>
+                            <option value="10">19</option>
+                            <option value="10">20</option>
+                            <option value="10">21</option>
+                            <option value="10">22</option>
+                            <option value="10">23</option>
+                            <option value="10">24</option>
+                            <option value="10">25</option>
+                            <option value="10">26</option>
+                            <option value="10">27</option>
+                            <option value="10">28</option>
+                            <option value="10">29</option>
+                            <option value="10">30</option>
+                    </select>
+                </p>
+                <button type="button">完成编辑</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
