@@ -1,4 +1,13 @@
 $(function() {
+    // 返回顶部
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+            $('#topTZ').css('display', 'block')
+        } else {
+            $('#topTZ').css('display', 'none')
+        }
+    });
+
     // 增
     $('.selectlist').on('click', '.span1', function() {
         // $(this).parent().parent().clone(true).appendTo(".selectlistalt");
@@ -87,14 +96,28 @@ $(function() {
 
     })
 
-    //数据双向绑定标题输入
-    $('.databind').blur(function() {
-        if ($(this).val() == '') {
-            $(this).parents('.text').siblings('.timuname').find('.updatatext').text('请输入标题或名字');
+    //数据双向绑定标题头输入
+
+    $('.databind').on('input propertychange', function() {
+        var $index = $(this).parents('ul').children('li').index($(this).parents('li'))
+        var content = $(this).parents('.text').siblings('.timuname').find('.updatatext');
+        if ($(this).parents('.text').siblings('.timuname').hasClass('duoxiangTk')) {
+            // 进来为多选
+            if ($(this).val() == '') {
+                content.text('请输入标题或名字');
+            } else {
+                content.html(this.value.toString().replace(/(\r)*\n/g, "<br/>").replace(/\s/g, " "))
+            }
         } else {
-            $(this).parents('.text').siblings('.timuname').find('.updatatext').text($(this).val());
+            // 进来为单选
+            if ($(this).val() == '') {
+                content.text('请输入标题或名字');
+            } else {
+                content.html($(this).val())
+            }
         }
     })
+
 
 
     // 点击button
@@ -151,7 +174,7 @@ $(function() {
     })
 
 
-    // 选择题默认设置 xxactive
+    // 选择题单选或多选默认设置 xxactive
     $('.selectlist').on('click', 'input[name="moren"]', function() {
         var $index = $(this).parents('ul').children('li').index($(this).parents('li'))
 
@@ -190,7 +213,7 @@ $(function() {
         }
     })
 
-    // 修改题目关联
+    // 修改选项关联
     $('.selectlist').on('input propertychange', 'input[type="text"]', function() {
         var $index = $(this).parents('ul').children('li').index($(this).parents('li'));
         if ($(this).val() == '') {
@@ -201,13 +224,21 @@ $(function() {
 
     });
 
+    // 合计分数
+    $('#heji').click(function() {
+        var fen = 0;
+        $('.fenshutext').each(function(i, el) {
+            fen += Number($(el).val())
+        })
+        fen = fen - 2.5;
+        $('#hejifen').text(fen);
+    })
+
 
     $('.topnav span').on('click', function() {
         var data_class = $(this).attr('data-id');
         $('.cont').append($('.template' + ' .' + data_class).clone(true));
     })
-
-
 })
 
 $(function() {
