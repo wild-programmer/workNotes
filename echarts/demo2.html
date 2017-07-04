@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>echarts是真简单了</title>
+    <script src="./echarts.js"></script>
+</head>
+
+<body>
+    <div id="main" style="width: 400px;height:300px;"></div>
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    option = {
+        color: [
+            'gold', //线的颜色
+        ],
+        title: {
+            left: 'center',
+            text: '工作量分布图', //顶部文字的设置
+        },
+        tooltip: {
+            trigger: 'axis', //折线图触发配置
+            textStyle: { //提示框浮层的文本样式。
+                color: '#ccc',
+                fontStyle: 'italic',
+                fontSize: '15'
+            }, //提示框浮层样式。
+            // triggerOn: 'click', //注释前为hover 点击触发浮层  
+            backgroundColor: 'rgba(0,0,0,0.7)'
+        },
+        xAxis: { //X轴
+            type: 'category',
+            boundaryGap: false,
+            axisPointer: {
+                show: true, //直线指示器
+                tooltip: true,
+                label: {
+                    show: true
+                }
+            },
+            data: ['周一', '周二', '周三', '周四', '周五', '周六'],
+            splitArea: {
+                show: true, //X轴分割块显示
+                areaStyle: {
+                    color: ['rgba(250,250,250,0.3)', 'rgba(200,200,200,0.3)'], //x轴分割块的颜色
+                    shadowColor: 'rgba(0, 0, 0, 0.5)', //阴影颜色
+                    shadowBlur: 10, //模糊大小
+                    shadowOffsetX: 2 //偏移量
+                }
+            },
+            axisLine: {
+                show: true,
+                lineStyle: { //坐标轴的颜色设置
+                    color: '#ccc',
+                }
+            },
+        },
+        yAxis: { //y轴
+            type: 'value',
+            min: 55,
+            max: 90,
+            splitNumber: 7,
+            axisLine: {
+                show: true,
+                lineStyle: { //坐标轴的颜色设置
+                    color: '#ccc',
+                }
+            },
+        },
+        series: [{
+            name: '成交',
+            type: 'line',
+            smooth: true,
+            data: [65, 60, 90, 80, 56, 75],
+            itemStyle: {}, //折现拐角处的设置
+            smooth: false, //是否平滑显示
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //覆盖渐变阴影
+                        offset: 0,
+                        color: '#8ec6ad'
+                    }, {
+                        offset: 1,
+                        color: '#ffe'
+                    }])
+                }
+            },
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+</html>
