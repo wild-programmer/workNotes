@@ -1,2 +1,3 @@
-export class hello {
+{
+    let a = "string"
 }
