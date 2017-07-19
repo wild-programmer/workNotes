@@ -17,6 +17,7 @@
      alert(1);
  }
 
+
  function isWeiXin() {
      var ua = navigator.userAgent.toLowerCase();
      if (ua.indexOf('micromessenger') != -1) {
