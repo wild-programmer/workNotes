@@ -37,7 +37,7 @@ $(function() {
 
 //顶部轮播
 var mySwiper = new Swiper('.swiper-container', {
-    autoplay: 5000, //可选选项，自动滑动
+    autoplay: 5000,
 })
 
 // 广告图开始
@@ -93,7 +93,12 @@ $spans.eq(2).addClass('curactive');
     var $eltext = $('.banner_baoj');
     var $toptext = $('.bannercent');
     var lispage = 2;
-
+    var course = document.querySelector('.content_banner');
+    var screenWidth = document.documentElement.clientWidth;
+    var startX = 0,
+        startTime,
+        dx = 0,
+        tag = true;
     var interval;
     //让轮播图达到status指定的状态
 
@@ -115,32 +120,30 @@ $spans.eq(2).addClass('curactive');
     $toptext.text(lis.eq(lispage).attr('data-text'));
 
     function moveall(time) {
-        lis.each(function(i, ele) {
+        $('.banner3D li').each(function(i, ele) {
             $spans.eq(i).removeClass('curactive');
-            if (i >= 1 && i <=
+            if (i >= 0 && i <=
                 5) {
-                i = i - 1;
+                // i = i - 1;
                 $(ele).animate(states[i], {
                     easing: 'easeInCubic',
                     duration: time,
                 })
-            } else if (i > 5) {
-                i = 4;
-                $(ele).animate(states[i], {
-                    easing: 'easeInCubic',
-                    duration: time,
-                })
-            } else {
-                $(ele).animate(states[i], {
+            } else if (i > 4) {
+                $(ele).animate(states[4], {
                     easing: 'easeInCubic',
                     duration: time,
                 })
             }
         });
+        tag = true;
     }
     //让轮播图滚动到下一张 
     function next(time) {
-        states.unshift(states.pop());
+
+        var $del = $('.banner3D li').eq(0);
+        $('.banner3D li').eq(0).remove();
+        $del.appendTo($('.banner3D'));
         moveall(time);
         setTimeout(function() {
             if (lispage <
@@ -156,7 +159,10 @@ $spans.eq(2).addClass('curactive');
     };
 
     function prev(time) {
-        states.push(states.shift());
+        var k = $('.banner3D li').length - 1;
+        var $eldel = $('.banner3D li').eq(k);
+        $('.banner3D li').eq(k).remove();
+        $eldel.prependTo($('.banner3D'));
         moveall(time);
         setTimeout(function() {
             if (lispage <= 0) {
@@ -167,7 +173,7 @@ $spans.eq(2).addClass('curactive');
             $eltext.text(lis.eq(lispage).attr('data-money'));
             $toptext.text(lis.eq(lispage).attr('data-text')); //小方块 
             $spans.eq(lispage).addClass('curactive');
-        }, 500)
+        }, time / 2)
 
     } //自动播放 
     function play(time) {
@@ -176,38 +182,29 @@ $spans.eq(2).addClass('curactive');
         }, settings.delay);
     }
     play(settings.speed);
-    var course = document.querySelector('.content_banner');
-    var screenWidth = document.documentElement.clientWidth;
-    var startX = 0,
-        startTime,
-        dx = 0,
-        tag = 0;
+
     course.addEventListener('touchstart', touchstartHandler);
     course.addEventListener('touchmove', touchmoveHandler);
     course.addEventListener('touchend', touchendHandler);
 
+
     function touchstartHandler(e) {
-        lis.each(function(i,
+        $('.banner3D li').each(function(i,
             ele) {
             $(ele).stop();
         });
-        tag++;
-        if (tag == 1) {
-            startX = e.touches[0].pageX;
-            startTime = new Date();
-            clearInterval(interval);
-        }
+        startX = e.touches[0].pageX;
+        startTime = new Date();
+        clearInterval(interval);
     };
 
-    function touchmoveHandler(e) { // 获取滑动的距离
-        if (tag == 1) {
-            dx = e.touches[0].pageX - startX;
-        }
+    function touchmoveHandler(e) { // 获取滑动的距离 
+        dx = e.touches[0].pageX - startX;
     };
 
     function touchendHandler(e) {
-        if (tag == 1) {
-            tag--;
+        if (tag) {
+            tag = false
             var t = new Date() - startTime; // 在结束的时候重新获取滑动的距离
             var dx = e.changedTouches[0].pageX - startX;
             if (dx < -(screenWidth / 3) || (t < 500 && dx < -30)) {
@@ -220,7 +217,10 @@ $spans.eq(2).addClass('curactive');
             } else {
                 // 添加过渡 
                 play(settings.speed);
+                tag = true;
             }
+        } else {
+            return;
         }
     };
 })($)
@@ -228,7 +228,11 @@ $spans.eq(2).addClass('curactive');
 $(function() {
     $('.butenbox button').on('touchend', function() {
         $('.footbuy').css('display', 'block');
-        $('.footbuyDB').css('display', 'block');
+        if ($(this).hasClass('white')) {
+            $('#buycur').css('display', 'block');
+        } else {
+            $('#limai').css('display', 'block');
+        }
     })
     $('.delet').on('touchend', function() {
         $('.footbuy').css('display', 'none');
@@ -238,21 +242,39 @@ $(function() {
         $(this).siblings('span').removeClass('buyactive');
         $(this).addClass('buyactive');
     })
-    $('.buyppp').click(function() {
-        var $val = $('.buynumb').text();
+
+    /* 增添货物 */
+    $('.limai_buyppp').click(function() {
+        var $val = $('.limai_buynumb').text();
         $val++;
         if ($val > 99) {
             $val = 99;
         }
-        $('.buynumb').text($val)
+        $('.limai_buynumb').text($val)
     })
-    $('.buyadd').click(function() {
-        var $val = $('.buynumb').text();
+    $('.limai_buyadd').click(function() {
+        var $val = $('.limai_buynumb').text();
         $val--;
         if ($val < 1) {
             $val = 1
         }
-        $('.buynumb').text($val)
+        $('.limai_buynumb').text($val)
+    })
+    $('.buycur_buyppp').click(function() {
+        var $val = $('.buycur_buynumb').text();
+        $val++;
+        if ($val > 99) {
+            $val = 99;
+        }
+        $('.buycur_buynumb').text($val)
+    })
+    $('.buycur_buyadd').click(function() {
+        var $val = $('.buycur_buynumb').text();
+        $val--;
+        if ($val < 1) {
+            $val = 1
+        }
+        $('.buycur_buynumb').text($val)
     })
 
     //详情切换
