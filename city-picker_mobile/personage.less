@@ -1,0 +1,135 @@
+@import 'base.css';
+body{
+  background-color: #f6f6f6;
+}
+
+.import{
+    height: 50/15rem;
+    width: 100%;
+    line-height: 50/15rem;
+    padding:0 1rem;
+    box-sizing: border-box;
+    background-color: #fefefe;
+    .box{
+        width: 100%;
+        height: 48/15rem;
+        border-bottom: 1/15rem solid #F4F4F4; 
+      
+    }
+    span{
+        font-size: 1rem;
+        color: #303030;
+        letter-spacing: 0.42/15rem;
+    }
+    input[type='text']{
+        float: right;
+        width: 200/15rem;
+        height: 40/15rem;
+        border: 0;
+        outline: none;
+        text-align: right;
+        padding-right: 36/15rem;
+        font-size: 14/15rem;
+        color: #303030;
+    }
+    i{
+        display: block;
+        float: right;
+        margin-right: 36/15rem;
+        font-size: 14/15rem;
+        color: #646464;
+        letter-spacing: 0.39/15rem;
+        position: relative;
+        
+        img{
+            width: 42/15rem;
+            height: 42/15rem;
+            border-radius: 50%;
+        }
+    }
+    i::before{
+        content: "";
+        display: block;
+        width: 20/15rem;
+        height: 20/15rem;
+        position: absolute;
+        top: 1rem;
+        right: -1.1rem;
+        background:url('img/jt.png') no-repeat;
+        background-size:20/15rem 20/15rem;
+    }
+}
+
+.height60{
+    height: 60/15rem;
+    line-height: 60/15rem;
+    .box{
+        height: 58/15rem;
+        line-height:  58/15rem;
+        i{            
+            height: 58/15rem;
+            line-height:  58/15rem;
+            img{
+                margin-top: 8/15rem;
+            }
+            input[type="file"]{
+                width: 42/15rem;
+                height: 42/15rem;
+                position: absolute;
+                left: 0;
+                top: 12/15rem;
+                z-index: 6666;
+                opacity: 0;
+            }
+        }
+        >i::before{
+            top: 1.3rem;
+        }
+    }
+}
+
+.content{
+    width: 100%;
+    height: 120/15rem;
+    background-color: #fdfdfd;
+    border-bottom: 1/15rem solid #cccccc; 
+    textarea{
+        width: 345/15rem;
+        height: 90/15rem;
+        margin: 0 auto;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        border:0;
+        background-color: #f6f6f6;
+        padding: 8/15rem 10/15rem;
+        box-sizing: border-box;
+        font-size: 14/15rem;
+        color: #969696;
+        line-height: 19/15rem
+    }
+}
+
+button[type="submit"]{
+    width: 300/15rem;
+    height: 40/15rem;
+    line-height: 40/15rem;
+    font-size: 15/15rem;
+    color: #FFFFFF;
+    background: #CCCCCC;
+    letter-spacing: 0.42/15rem;
+    border: 0;
+    border-radius: 5/15rem;
+    position: absolute;
+    left: 41/15rem;
+    bottom: 80/15rem;
+    outline: none;
+}
+
+.slecter{
+    border: 0;
+    outline: none;
+}
+input[type="date"]{
+    border: 0;
+    outline: none;
+}

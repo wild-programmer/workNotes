@@ -1,0 +1,128 @@
+@import 'base.css';
+body {
+  background-color: #f6f6f6;
+}
+.import {
+  height: 3.33333333rem;
+  width: 100%;
+  line-height: 3.33333333rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  background-color: #fefefe;
+}
+.import .box {
+  width: 100%;
+  height: 3.2rem;
+  border-bottom: 0.06666667rem solid #F4F4F4;
+}
+.import span {
+  font-size: 1rem;
+  color: #303030;
+  letter-spacing: 0.028rem;
+}
+.import input[type='text'] {
+  float: right;
+  width: 13.33333333rem;
+  height: 2.66666667rem;
+  border: 0;
+  outline: none;
+  text-align: right;
+  padding-right: 2.4rem;
+  font-size: 0.93333333rem;
+  color: #303030;
+}
+.import i {
+  display: block;
+  float: right;
+  margin-right: 2.4rem;
+  font-size: 0.93333333rem;
+  color: #646464;
+  letter-spacing: 0.026rem;
+  position: relative;
+}
+.import i img {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+}
+.import i::before {
+  content: "";
+  display: block;
+  width: 1.33333333rem;
+  height: 1.33333333rem;
+  position: absolute;
+  top: 1rem;
+  right: -1.1rem;
+  background: url('img/jt.png') no-repeat;
+  background-size: 1.33333333rem 1.33333333rem;
+}
+.height60 {
+  height: 4rem;
+  line-height: 4rem;
+}
+.height60 .box {
+  height: 3.86666667rem;
+  line-height: 3.86666667rem;
+}
+.height60 .box i {
+  height: 3.86666667rem;
+  line-height: 3.86666667rem;
+}
+.height60 .box i img {
+  margin-top: 0.53333333rem;
+}
+.height60 .box i input[type="file"] {
+  width: 2.8rem;
+  height: 2.8rem;
+  position: absolute;
+  left: 0;
+  top: 0.8rem;
+  z-index: 6666;
+  opacity: 0;
+}
+.height60 .box > i::before {
+  top: 1.3rem;
+}
+.content {
+  width: 100%;
+  height: 8rem;
+  background-color: #fdfdfd;
+  border-bottom: 0.06666667rem solid #cccccc;
+}
+.content textarea {
+  width: 23rem;
+  height: 6rem;
+  margin: 0 auto;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  border: 0;
+  background-color: #f6f6f6;
+  padding: 0.53333333rem 0.66666667rem;
+  box-sizing: border-box;
+  font-size: 0.93333333rem;
+  color: #969696;
+  line-height: 1.26666667rem;
+}
+button[type="submit"] {
+  width: 20rem;
+  height: 2.66666667rem;
+  line-height: 2.66666667rem;
+  font-size: 1rem;
+  color: #FFFFFF;
+  background: #CCCCCC;
+  letter-spacing: 0.028rem;
+  border: 0;
+  border-radius: 0.33333333rem;
+  position: absolute;
+  left: 2.73333333rem;
+  bottom: 5.33333333rem;
+  outline: none;
+}
+.slecter {
+  border: 0;
+  outline: none;
+}
+input[type="date"] {
+  border: 0;
+  outline: none;
+}

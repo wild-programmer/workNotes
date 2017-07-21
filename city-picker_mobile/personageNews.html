@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./common.js"></script>
+    <link rel="stylesheet" href="./personage.css">
+    <link rel="stylesheet" href="./weui.min.css">
+    <link rel="stylesheet" href="./jquery-weui.css">
+
+</head>
+
+<body>
+    <div class="import height60">
+        <div class="box">
+            <span>头像</span>
+            <i>
+                <input type="file">
+                <div class="reader_fileboxCT">
+                    <img src="img/baner1.png" alt="">
+                </div>                
+            </i>
+        </div>
+    </div>
+    <div class="import">
+        <div class="box">
+            <span>昵称</span><input type="text" name="" value="" placeholder="请输入昵称">
+        </div>
+    </div>
+    <div class="import">
+        <div class="box">
+            <span>性别</span>
+            <i>
+                <select class="slecter" value="男">
+                    <option value="1">男</option>
+                    <option value="2">女</option>
+                </select>
+            </i>
+        </div>
+    </div>
+    <div class="import">
+
+        <div class="box">
+            <span>出生年月</span>
+            <i>
+                <input type="date" value="2014-02-09"> 
+            </i>
+        </div>
+    </div>
+    <div class="import">
+        <div class="box">
+            <span>省市</span>
+            <i>
+                <input type="text" id='city-picker' />
+            </i>
+        </div>
+    </div>
+    <div class="content">
+        <textarea name="" id="" cols="30" rows="10" placeholder="自我介绍"></textarea>
+    </div>
+    <button type="submit">保存修改</button>
+
+</body>
+<!-- body 最后 -->
+<script src="./jquery-2.1.4.js"></script>
+<script src="./jquery-weui.js"></script>
+<script src="./city-picker.js"></script>
+<script>
+    var $cityPicker = $('#city-picker');
+    $cityPicker.cityPicker({
+        title: "请选择所在地区"
+    });
+    var newStrArea = currentAddress.split(" ");
+    $cityPicker.val(newStrArea[0] + ' ' + newStrArea[1] + ' ' + newStrArea[2]);
+</script>
+
+</html>
