@@ -70,7 +70,6 @@
     <div class="barwhite"></div>
     <nav>
         <ul class="navbar clearfix">
-            <li class="navactive" data-class="content_all">装饰画详情</li>
             <li class="navactive" data-class="content_all">原画介绍</li>
             <li data-class="content_flow">购买流程</li>
             <li class="marginright0" data-class="content_serve">保障服务</li>
@@ -109,23 +108,23 @@
         <li class="imgnews">
             <span><em>场合：</em><i>12341231</i></span>
         </li>
-        <img src="./img/dbimg1.png" alt="">
-        <img src="./img/dbimg1.png" alt="">
+        <img class="bodyimg" src="./img/dbimg1.png" alt="">
+        <img class="bodyimg" src="./img/dbimg1.png" alt="">
     </div>
     </div>
     <div class="remove_dispaly content_flow display">
-        <img src="./img/banner02.jpg" alt="">
+        <img src="./img/buy.png" alt="">
     </div>
     <div class="remove_dispaly content_serve display">
-        <img src="./img/banner02.jpg" alt="">
+        <img src="./img/baoz.png" alt="">
     </div>
     <div class="footdiv">
-        <span>
-                <img src="./img/phone.png" alt="">
-        </span>
+        <a href="tel:15037892015">
+            <span class="footdiv_span"><img src="./img/phone.png" alt=""></span>
+        </a>
         <div class="butenbox">
-            <a href="#maodian"><button class="white">+购物车</button></a>
-            <a href="#maodian"><button class="red">立即购买</button></a>
+            <button class="white"><a href="javascript:void(0);">+购物车</a></button>
+            <button class="red"><a href="javascript:void(0);">立即购买</a></button>
         </div>
     </div>
     <div class="DBbox">
@@ -137,7 +136,8 @@
             <img src="./img/baner1.png" alt="">
         </div>
     </div>
-    <div class="footbuyDB">
+    <!-- 添加购物车时候弹出的 -->
+    <div id="buycur" class="footbuyDB">
         <div class="footbuy">
             <div class="footbuy_top">
                 <div class="footbuy_top_l">
@@ -175,16 +175,83 @@
                 <li>
                     <i>数量</i>
                     <p>
-                        <em class="buyadd">-</em>
-                        <em class="buyppp">+</em>
-                        <span class="buynumb">21</span>
+                        <em class="buyadd buycur_buyadd">-</em>
+                        <em class="buyppp buycur_buyppp">+</em>
+                        <span class="buynumbput">
+                            <span class="buynumb buycur_buynumb" id="cartcount">1</span>
+                        <span class="buynumbr">件</span>
+                        </span>
                     </p>
                 </li>
             </ul>
-            <button class="buy_button">确定</button>
+            <button class="buy_button" id="buy_button_car" onclick="sendcart();">确定</button>
+            <script type="text/javascript">
+                function sendcart() {
+                    var p = $(".prodid").html();
+                    var n = $("#cartcount").html();
+                    $.Bfw.cart.add(p, n, bfwResponse);
+                }
+            </script>
         </div>
     </div>
-
+    <!-- 立即购买时候弹出的 -->
+    <div id="limai" class="footbuyDB">
+        <div class="footbuy">
+            <div class="footbuy_top">
+                <div class="footbuy_top_l">
+                    <img src="./img/erw.png" alt="">
+                </div>
+                <div class="footbuy_top_r">
+                    <p>西部世界</p>
+                    <p>¥400-2,000</p>
+                </div>
+                <span class="delet">x</span>
+            </div>
+            <ul class="footbuy_cont">
+                <li>
+                    <i>类型</i>
+                    <span>装饰画</span>
+                </li>
+                <li>
+                    <i>内裱</i>
+                    <span>白色</span>
+                    <span>无</span>
+                </li>
+                <li>
+                    <i>尺寸</i>
+                    <span>50x50</span>
+                    <span>100x100</span>
+                    <span>120x120</span>
+                </li>
+                <li class="buy_chubie">
+                    <i>画框</i>
+                    <span class="buyzuosi">椿木</span>
+                    <span>纯色</span>
+                    <span>哑光</span>
+                    <span>硬木</span>
+                </li>
+                <li>
+                    <i>数量</i>
+                    <p>
+                        <em class="buyadd limai_buyadd">-</em>
+                        <em class="buyppp limai_buyppp">+</em>
+                        <span class="buynumbput">
+                            <span class="buynumb limai_buynumb" id="buycount">1</span>
+                        <span class="buynumbr">件</span>
+                        </span>
+                    </p>
+                </li>
+            </ul>
+            <button class="buy_button" id="buy_button_buy" onclick="sendbuy();">确定</button>
+            <script type="text/javascript">
+                function sendbuy() {
+                    var p = $(".prodid").html();
+                    var n = $("#buycount").html();
+                    $.Bfw.buy(p, n, 0);
+                }
+            </script>
+        </div>
+    </div>
 </body>
 <script src="./jquery.min.js"></script>
 <script src="./easing.min.js"></script>

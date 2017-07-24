@@ -229,7 +229,7 @@ $(function() {
     $('.butenbox button').on('touchend', function() {
         $('.footbuy').css('display', 'block');
         if ($(this).hasClass('white')) {
-            $('#buycur').css('display', 'block');
+            $('.footbuyDB').css('display', 'block');
         } else {
             $('#limai').css('display', 'block');
         }
