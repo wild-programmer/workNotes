@@ -78,3 +78,4 @@
 	eventTester("ratechange"); //播放速率改变
 	eventTester("durationchange"); //资源长度改变
 	eventTester("volumechange"); //音量改变
+	
