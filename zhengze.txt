@@ -80,3 +80,18 @@
 ^([a-zA-Z]|[0-9]|[!#$%^&*@]){6,16}$
 出现大小写  字母和指定字符
 
+var str = "   123AD  asadf   asadfasf  adf  ";
+1 替换掉字符串中的所有空白
+	str.replace(/\s+/g,"")
+2.将所有的ad替换成xx
+	str.replace(/(ad)+/g,"XX")
+3. 将所有的ad/AD替换成xx
+	str.replace(/[(ad)|(AD)]+/g,"XX")
+var str = abc,efg,123,abc,123,a
+1.所有的逗号替换成句号
+	str.replace(/\,+/g,".")
+4.获取ad/AD
+	var url = /[('ad')]{2}|[('AD')]+/g;
+	var str = "   123AD  asadf   asadfasf  adf  ";
+	var result = str.match(url)
+	console.log(result)  
