@@ -1,0 +1,150 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+.clearfix::after,
+.clearfix::before {
+  content: '';
+  display: block;
+}
+.clearfix::after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+* {
+  font-size: 9pt;
+}
+.place {
+  width: 100%;
+  min-height: 40px;
+  line-height: 40px;
+  background-color: #f0f5f7;
+  border-bottom: 1px solid #b6cad2;
+  padding-left: 1%;
+  box-sizing: border-box;
+}
+.place .place_buton {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  background: url('img/button.png') no-repeat;
+  background-size: 12px;
+  background-position: 2.5px;
+  border: 1px solid #676767;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+.place :nth-child(2n) {
+  margin-right: 3%;
+}
+.place .marginl {
+  margin-right: 3%;
+}
+.place input[type="date"] ~ input {
+  margin-left: 1%;
+}
+.place input[type="date"] ~ select {
+  border: 1px solid #b6cad2;
+  outline: none;
+  padding: 3px 0;
+  padding-right: 1%;
+}
+.tablelist {
+  border: solid 1px #cbcbcb;
+  width: calc(98%);
+  margin: 1%;
+  clear: both;
+  border-collapse: collapse;
+  max-height: 700px;
+}
+.tablelist thead {
+  text-align: left;
+  text-indent: .5%;
+  background-color: #f0f5f7;
+  box-shadow: 0px -1px 5px 1px #b6cad2 inset;
+  border-collapse: collapse;
+}
+.tablelist thead tr {
+  height: 35px;
+  lighting-color: 35px;
+}
+.tablelist tbody {
+  text-align: left;
+  text-indent: .5%;
+}
+.tablelist tbody td {
+  line-height: 35px;
+  text-indent: 11px;
+  border-right: dotted 1px #c7c7c7;
+  padding: 0;
+  max-width: 8%;
+}
+.tablelist tbody td .imgs {
+  max-width: 35px;
+  max-height: 35px;
+  display: inline-block;
+  position: relative;
+  top: 6px;
+}
+.tablelist tbody td .img {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  top: 6px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.tablelist tbody td a {
+  padding: 2px 10px;
+  background: #434343;
+  color: white;
+  text-decoration: none;
+  outline: none;
+  margin-left: 4px;
+}
+.tablelist tbody tr {
+  background-color: #fff;
+}
+.tablelist tbody tr:nth-child(2n) {
+  background-color: #f5f8fa;
+}
+@media (max-width: 1440px) {
+  .place :nth-child(2n) {
+    margin-right: 2%;
+  }
+  .place .marginl {
+    margin-right: 2%;
+  }
+  .place input {
+    width: 130px;
+  }
+}
+@media (max-width: 1200px) {
+  .place :nth-child(2n) {
+    margin-right: 1%;
+  }
+  .place .marginl {
+    margin-right: 1%;
+  }
+  .place input {
+    width: 100px;
+  }
+}
