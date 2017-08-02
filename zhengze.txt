@@ -95,3 +95,34 @@ var str = abc,efg,123,abc,123,a
 	var str = "   123AD  asadf   asadfasf  adf  ";
 	var result = str.match(url)
 	console.log(result)  
+
+
+正则如何使用变量的介绍
+<script>
+    var $el = $('input[type="text"]'),
+        el_value = '',
+        Unico = '';
+    var str = "答：《百变辣妈》出品方上海七门影业"
+
+    $el.on('input propertychange', function() {
+        el_value = $(this).val()
+        console.log(el_value)
+        Unico = tounicode(el_value);
+        //把变量传进去就能匹配  后面是正则的参数
+        var reg = new RegExp(Unico, "g");
+        var replacement = '<span>' + el_value + '</span>';
+        console.log(str.replace(reg, replacement))
+    })
+
+    function tounicode(data) {
+        if (data == '') return '请输入汉字';
+        var str = '';
+        for (var i = 0; i < data.length; i++) {
+            str += "\\u" + parseInt(data[i].charCodeAt(0), 10).toString(16);
+        }
+        return str;
+    }
+
+//eg:var v = "bl";
+//   var re = new RegExp("^\\d+"+ v + "$","gim"); //re为 /^\d+bl$/gim
+</script>
