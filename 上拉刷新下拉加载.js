@@ -17,7 +17,7 @@ var scrollT; //这是被卷去的高度
 var bodyHeig; //盒子的高度
 var tipy, saty, movey;
 $(document.body).on('touchstart', function(e) {
-    var touch_star = e.originalEvent.targetTouches[0];
+    var touch_star = e.originalEvent.targetTouches[0]; //获取jquery包含pageX Y的对象
     saty = touch_star.pageY;
     $('#thelist').removeClass('active');
     bodyHeig = document.querySelector('.body').offsetHeight;
