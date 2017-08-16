@@ -1,0 +1,27 @@
+去除display:inline-block;的边距网址
+http://www.zhangxinxu.com/wordpress/?p=2357
+
+1,使用margin负值(这个方法不适合大规模使用。不同浏览器 margin-right: -3px;的值像素值不确定)
+
+2,让闭合标签吃胶囊
+	eg:<div class="space">
+    		<a href="##">惆怅
+    		<a href="##">淡定
+    		<a href="##">热血</a>
+	   </div>
+3,使用font-size:0
+	.space {
+  	  font-size: 0;
+   	  -webkit-text-size-adjust:none;
+	}
+	.space a {
+   	  font-size: 12px;
+	}
+4,使用word-spacing
+	.space {
+    	   display: inline-table;//添加display: table;或display:inline-table;让Chrome浏览器也变得乖巧
+      	   word-spacing: -6px;
+	}
+	.space a {
+    	   word-spacing: 0;
+	}
