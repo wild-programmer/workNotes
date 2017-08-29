@@ -1,5 +1,3 @@
-console.log($('body'))
-
 //遮罩
 $(function() {
     $('.DBbox').css('height', document.documentElement.clientHeight);
@@ -52,24 +50,12 @@ $spans.eq(2).addClass('curactive');
     //旋转标签对象 
     var $ele = $('.banner3D li'); //默认设置项 
     var settings = {
-        delay: 5000, //动画间隔 
+        delay: 2000, //动画间隔 
         speed: 1000, //动画时长
         touchtime: 250, //手动切换时长 
     };
     //找好每个图片对应的位置状态
     var states = [{
-        "zIndex": "1",
-        "width": "10rem",
-        "top": ".8rem",
-        "left": "7.5rem",
-        "opacity": "0.3"
-    }, {
-        "zIndex": "3",
-        "width": "11rem",
-        "top": ".4rem",
-        "left": "10rem",
-        "opacity": "0.7"
-    }, {
         "zIndex": "4",
         "width": "12rem",
         "top": "0",
@@ -87,18 +73,25 @@ $spans.eq(2).addClass('curactive');
         "top": ".8rem",
         "left": "17.5rem",
         "opacity": "0.3"
+    }, {
+        "zIndex": "1",
+        "width": "10rem",
+        "top": ".8rem",
+        "left": "7.5rem",
+        "opacity": "0.3"
+    }, {
+        "zIndex": "3",
+        "width": "11rem",
+        "top": ".4rem",
+        "left": "10rem",
+        "opacity": "0.7"
     }];
     var lis = $ele;
     var interval, val;
     var $eltext = $('.banner_baoj');
     var $toptext = $('.bannercent');
     var lispage = 2;
-    var course = document.querySelector('.content_banner');
-    var screenWidth = document.documentElement.clientWidth;
-    var startX = 0,
-        startTime,
-        dx = 0,
-        tag = true;
+
     var interval;
     //让轮播图达到status指定的状态
 
@@ -120,30 +113,39 @@ $spans.eq(2).addClass('curactive');
     $toptext.text(lis.eq(lispage).attr('data-text'));
 
     function moveall(time) {
-        $('.banner3D li').each(function(i, ele) {
+        lis.each(function(i, ele) {
+            console.log(i)
             $spans.eq(i).removeClass('curactive');
             if (i >= 0 && i <=
-                5) {
+                4) {
                 // i = i - 1;
                 $(ele).animate(states[i], {
                     easing: 'easeInCubic',
                     duration: time,
                 })
             } else if (i > 4) {
-                $(ele).animate(states[4], {
+                i = 4;
+                $(ele).animate(states[i], {
+                    easing: 'easeInCubic',
+                    duration: time,
+                })
+            } else {
+                $(ele).animate({
+                    "zIndex": "1",
+                    "width": "10rem",
+                    "top": ".8rem",
+                    "left": "17.5rem",
+                    "opacity": "0.3"
+                }, {
                     easing: 'easeInCubic',
                     duration: time,
                 })
             }
         });
-        tag = true;
     }
     //让轮播图滚动到下一张 
     function next(time) {
-
-        var $del = $('.banner3D li').eq(0);
-        $('.banner3D li').eq(0).remove();
-        $del.appendTo($('.banner3D'));
+        states.unshift(states.pop());
         moveall(time);
         setTimeout(function() {
             if (lispage <
@@ -159,10 +161,7 @@ $spans.eq(2).addClass('curactive');
     };
 
     function prev(time) {
-        var k = $('.banner3D li').length - 1;
-        var $eldel = $('.banner3D li').eq(k);
-        $('.banner3D li').eq(k).remove();
-        $eldel.prependTo($('.banner3D'));
+        states.push(states.shift());
         moveall(time);
         setTimeout(function() {
             if (lispage <= 0) {
@@ -173,7 +172,7 @@ $spans.eq(2).addClass('curactive');
             $eltext.text(lis.eq(lispage).attr('data-money'));
             $toptext.text(lis.eq(lispage).attr('data-text')); //小方块 
             $spans.eq(lispage).addClass('curactive');
-        }, time / 2)
+        }, 500)
 
     } //自动播放 
     function play(time) {
@@ -182,29 +181,38 @@ $spans.eq(2).addClass('curactive');
         }, settings.delay);
     }
     play(settings.speed);
-
+    var course = document.querySelector('.content_banner');
+    var screenWidth = document.documentElement.clientWidth;
+    var startX = 0,
+        startTime,
+        dx = 0,
+        tag = 0;
     course.addEventListener('touchstart', touchstartHandler);
     course.addEventListener('touchmove', touchmoveHandler);
     course.addEventListener('touchend', touchendHandler);
 
-
     function touchstartHandler(e) {
-        $('.banner3D li').each(function(i,
+        lis.each(function(i,
             ele) {
             $(ele).stop();
         });
-        startX = e.touches[0].pageX;
-        startTime = new Date();
-        clearInterval(interval);
+        tag++;
+        if (tag == 1) {
+            startX = e.touches[0].pageX;
+            startTime = new Date();
+            clearInterval(interval);
+        }
     };
 
-    function touchmoveHandler(e) { // 获取滑动的距离 
-        dx = e.touches[0].pageX - startX;
+    function touchmoveHandler(e) { // 获取滑动的距离
+        if (tag == 1) {
+            dx = e.touches[0].pageX - startX;
+        }
     };
 
     function touchendHandler(e) {
-        if (tag) {
-            tag = false
+        if (tag == 1) {
+            tag--;
             var t = new Date() - startTime; // 在结束的时候重新获取滑动的距离
             var dx = e.changedTouches[0].pageX - startX;
             if (dx < -(screenWidth / 3) || (t < 500 && dx < -30)) {
@@ -217,13 +225,11 @@ $spans.eq(2).addClass('curactive');
             } else {
                 // 添加过渡 
                 play(settings.speed);
-                tag = true;
             }
-        } else {
-            return;
         }
     };
 })($)
+
 
 $(function() {
     $('.butenbox button').on('touchend', function() {
