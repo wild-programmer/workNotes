@@ -52,21 +52,31 @@
 
     <!-- 数字判断的格式化|判断等方法在 ##数字判断和转换里 -->
     <!-- 数组的方法 遍历 替换 转换 查找 替换 -->
-##解构赋值：
+##第3节解构赋值：
 #### 数组的解构赋值：
     <!-- 数组是按顺序解构的 -->
     es6  let [a, b, c] = [1, 2, 3];    es5  var a = 1, b = 2, c = 3;
-         let [a, [b, c], d, e = "jspang"] = [1, [2], 3, undefined];
+         let [a, [b, c], d, e = "cc"] = [1, [2], 3, undefined]; 
+		 console.log(a)//1
+		 console.log(e)//cc  
 ####对象的解构赋值：
+	let foo; //foo已经定义了变量  再赋值时在外边加括号
+    ({foo}={foo:'bb'}) ;
     <!-- 对象是按照key值解构的 -->
-    let { foo, bar } = { foo: 'cc', bar: 'wd' } 
-    let foo; //已经先赋值了  再赋值时在外边加括号
-    ({foo}={foo:'cc'}) ;
+    let { fo, bar } = { fo: 'cc', bar: 'wd' } 
+	
+    
 ####字符串的解构赋值：
     const [f, g, h, j, k, l] = 'jspang';
+	console.log(a);
+	console.log(b);
+	console.log(c);
+	console.log(d);
+	console.log(e);
+	console.log(f);
 
 
-##运算符
+##第4节运算符
 ####对象扩展运算符
     <!-- 参数不确定个数时候 -->
     function cc(...arg) {
@@ -92,13 +102,31 @@
     cc(1, 2, 3, 4) //length为3
 
 
-##字符串模板 （拼接字符串）    
+##第5节：字符串模板 （拼接字符串）    
     let cc = "乘冲"
     let blog = `字符串拼接 ${cc},不以物喜不以己悲`
     console.log(blog) //字符串拼接 乘冲,不以物喜不以己悲
+###支持html标签
+	let blog = `<b>非常高兴你能看到这篇文章</b>，我是你的老朋友${cc}。<br/>这节课我们学习字符串模版。`;
+	document.write(blog);
+###对运算的支持：
+	let a=1;
+	let b=2;
+	let result=`文字${a+b}`;
+	document.write(result);
+###字符串查找
+	console.log(blog.indexOf(cc)); //ES5的方法是 返回的是6
+	console.log(blog.includes(cc)) //直接返回true
+###判断开头是否存在：		
+	blog.startsWith(cc);
+###判断结尾是否存在：
+	blog.endsWith(cc);
+	!!starts和ends 后边都要加s
+###复制字符串		
+	document.write('cc,'.repeat(3));
 
 
-##ES6数字操作
+##第6节：ES6数字操作
 ###二进制和八进制
     <!-- Binary -->
     let binary = 0B010101;//21
@@ -131,7 +159,7 @@
     let a= Math.pow(2,53)-1;
     console.log(Number.isSafeInteger(a));//false
 
-##数组
+##第7节：数组
 ###JSON数组格式转换
     <!-- json数组格式 -->
     let  json = {
@@ -156,7 +184,7 @@
     console.log(arr.find(function(value, index, arr) {
         return value > 2;
     })) 
-###fill( )实例方法：
+###第8节：fill( )实例方法：
     <!-- 数组填充 它接收三个参数，第一个参数是填充的变量，第二个是开始填充的位置，第三个是填充到的位置 -->
     var arr4 = [0, 1, 2, 3, 4, 5, 6];
     arr4.fill('cc', 1, 2);
@@ -205,10 +233,7 @@
     console.log(arr.map(x=>'web'));
 
 
-##ES6中的对象
-###对象的赋值
-
-##箭头函数和扩展
+##第9节：箭头函数和扩展
 ###
     <!-- 手动抛出异常  -->
     throw new Error('抛出异常')
@@ -229,7 +254,7 @@
         return a+b;                 //多行情况下
     }
     console.log(add11(1,3))
-###对象|数组的函数结构
+###第10节：对象|数组的函数结构
     let obj={a:'cc',b:'qizhi'} 
     let arr=['cc','qizhi'];
     function fun({a,b='qizhi'}){
@@ -250,6 +275,96 @@
     let arr=[,,,,,];
     console.log(arr.length); 
     //上边的代码输出了5，但是数组中其实全是空值，这就是一个坑 ES6的in就可以解决这个问题   
-    console.log(0 in arr); //这里的0指的是数组下标位置是否为空。
+    console.log(0 in arr); //这里的0指的是数组下标位置 看它是否为空。
 
-    <!-- 数组的遍历方法 -->
+    <!-- 数组的遍历方法 在顶部-->
+
+
+##第11节：ES6对象
+###对象的赋值
+    变量直接赋值给对象
+    let name="cc";
+    let skill= 'web';
+    var obj= {name,skill}; //键和值都是变量
+    console.log(obj);  //Object {name: "cc", skill: "web"}
+###对象Key值的变量构建
+    key允许变量 构建
+    let key='skill';
+    var obj={
+        [key]:'web'
+    }
+    console.log(obj.skill); //obj {skill:"web}
+###Object.is()对象值的比较
+    var obj1 = {name:'jspang'};
+    var obj2 = {name:'jspang'};
+    console.log(obj1.name === obj2.name);//true
+    console.log(Object.is(obj1.name,obj2.name)); //true
+    === 和 is方法的区别
+    console.log(+0 === -0);  //true
+    console.log(NaN === NaN ); //false
+    console.log(Object.is(+0,-0)); //false
+    console.log(Object.is(NaN,NaN));  //true
+    ===为同值相等  is()为严格相等
+
+###Object.assign()合并对象
+    var a={name:'cc'};
+    var b={age:18};
+    var c={stature:'180cm'};    
+    let d=Object.assign(a,b,c)
+    console.log(d);
+
+###第12节：Symbol在对象中的应用
+    使用Symbol来进行数据保护
+    let obj = { name: 'cc', skill: 'web' };
+    let age = Symbol();
+    obj[age] = 18;
+    for (let item in obj) {
+        console.log(obj[item]);// cc web
+    }
+    console.log(obj);  //{name: "cc", skill: "web", Symbol(): 18}
+    console.log(obj[age]);  //18
+
+###第13节：Set和WeakSet数据结构
+    set是一个数组结构  最重要的是去重
+    let setArr = new Set(['cc', 'web', 18, 18])
+    console.log(setArr) // Set(3) {"cc", "web", 18}
+####Set值的增删查
+    //add
+    setArr.add('前端职场'); //不能增加重复的 会报错
+    //delete
+    setArr.delete('前端职场');
+    //has  查
+    console.log(setArr.has('cc'));//true
+    //.clear  删除全部
+    setArr.clear();
+####set的循环
+    //for…of…循环：
+    for (let item of setArr){
+        console.log(item);
+    }
+####size属性
+    console.log(setArr.size); //3  18去重了一个
+####forEach循环
+    setArr.forEach((value)=>console.log(value));
+####WeakSet的声明
+    set是一个数组结构  weakSet就是一个对象版的set
+    不能直接在new 的时候就放入值，将报错 eg let weakObj=new WeakSet({a:'cc',b:'wd'});//报错
+    let weakObj=new WeakSet();
+    let obj={a:'cc',b:'乘冲'}
+    let obj1=obj;   obj1和obj用的是同一个内存空间  所以重复不会被添加进去
+    
+    weakObj.add(obj);
+    weakObj.add(obj1);   
+
+    console.log(weakObj);
+
+    let obj={a:'cc',b:'乘冲'}
+    let obj1={a:'cc',b:'乘冲'};
+    
+    weakObj.add(obj);
+    weakObj.add(obj1);//obj1产生的内存空间和obj不一样  所以会被添加进去
+    
+    console.log(weakObj);
+
+
+##第14节：map数据结构
