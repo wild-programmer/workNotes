@@ -368,3 +368,178 @@
 
 
 ##第14节：map数据结构
+###json和map的对比
+    Map的灵活性要更好，你可以把它看成一种特殊的键值对，但你的key可以设置成数组，值也可以设置成字符串，让它不规律对应起来。
+    给 var map赋值 key为对象  value为字符串
+    let json = {
+        name:'jspang',
+        skill:'web'
+    }
+    console.log(json.name);    
+    var map=new Map();
+    map.set(json,'iam'); //拿json对象作为key  iam字符串作为值
+    console.log(map);
+
+    当然也可key字符串，value是对象。我们调换一下位置，依然是符合map的数据结构规范的。  
+    map.set('jspang',json);
+    console.log(map);
+###map的增删查取
+###取值get
+    获取json对应的value值 (json对象是key值)
+    console.log(map.get(json));
+###删除delete
+    map.delete(json);
+###size属性
+    console.log(map.size) //打印map对象的长度  从0开始
+###查找是否存在某值 has
+    查找的是key值
+    map.set('jspang',json);
+    console.log(map.has('jspang'));
+###清除所有的元素 clear
+    map.clear()
+##第15节:用Proxy进行预处理 
+###get set是得到会要改变对象属性值时预处理的方法
+    proxy为代理的意思   是es6用它增强对象和函数的方法
+    //es5定义对象的方法
+    let obj={
+        add:function(){
+            return val+100;
+        },
+        name:"i am cc"
+    }
+    //se6proxy的方法
+    let pro = new Proxy({放对象体},{放预处理机制}) 
+    let pro = new Proxy({
+        add:function(){
+            return val+100;
+        },
+        name:"i am cc"},{
+            //get 得到数据之前 预处理的事情
+            get:function(target,key,property){//三个参数是固定的
+                console.log('come in get')
+                return target[key]
+            }，
+            set:function(target,key,value,receiver){
+                        //目标，属性名，要变成的值，原始值
+                console.log(`setting ${key}=${value}之前的值是${receiver}`)
+                return target[key]
+            }
+        }
+    );
+
+    console.log(pro.name)//打印的是get函数执行的结果
+    console.log(pro.name = 'cc');//这里打印的是set里面的返回值
+###apply apply的作用是调用内部的方法，它使用在方法体是一个匿名函数时。
+    let target = function () {
+        return 'I am JSPang';
+    };
+    var handler = {
+        apply(target, ctx, args) {
+            console.log('do apply');
+            return Reflect.apply(...arguments); //固定格式 并未完全解释，要自己查文档深究
+        }
+    }
+    
+    var pro = new Proxy(要处理的函数, 放预处理机制);
+    var pro = new Proxy(target, handler);
+    
+    console.log(pro());
+##第16节 promise对象的使用
+    解决回调地狱
+    let state=1;
+ 
+    function step1(resolve,reject){
+        console.log('1.开始-洗菜做饭');
+        if(state==1){
+            resolve('洗菜做饭--完成');
+        }else{
+            reject('洗菜做饭--出错');
+        }
+    }
+    
+    
+    function step2(resolve,reject){
+        console.log('2.开始-坐下来吃饭');
+        if(state==1){
+            resolve('坐下来吃饭--完成');
+        }else{
+            reject('坐下来吃饭--出错');
+        }
+    }
+    
+    
+    function step3(resolve,reject){
+        console.log('3.开始-收拾桌子洗完');
+        if(state==1){
+            resolve('收拾桌子洗完--完成');
+        }else{
+            reject('收拾桌子洗完--出错');
+        }
+    }
+    
+    new Promise(step1).then(function(val){
+        console.log(val);
+        return new Promise(step2);    
+    }).then(function(val){
+        console.log(val);
+        return new Promise(step3);
+    }).then(function(val){
+        console.log(val);
+        return val;
+    });
+##第17节：class类的使用
+    类里面是方法和函数
+    声明类
+    class Coder{
+        name(val){
+            console.log(val)
+        }
+    }
+    实例化类
+    let cc = new Coder;
+    cc.name('cc');
+###在类里面 多个方法不需要,号隔开
+    class Coder {
+        name(val) {
+            console.log(val)
+            return val
+        }
+        skill(val) {
+            console.log(this.name('cc') + ":" + val)
+        }
+    }
+    // 实例化类
+    let cc1 = new Coder;
+    cc1.skill('web');
+###类的参数传递
+    类参数传递 eg: new Coder('val')  
+    与类里面方法的参数传递区分开eg：cc1.skill('web')
+    <br> 
+    在类的参数传递中我们用constructor( )进行传参
+    class Coder{    
+        constructor(a,b){
+            this.a=a;
+            this.b=b;
+        }    
+        add(){
+            return this.a+this.b;
+        }
+    }
+    
+    let cc=new Coder(1,2);
+    console.log(cc.add());  
+###class的继承 
+    类的一大特点就是继承
+    class htmler extends Coder{}
+    
+    let pang=new htmler;
+    pang.name('cc-extends');
+    声明一个htmler的新类并继承Coder类，htmler新类里边为空，这时候我们实例化新类，并调用里边的name方法。结果也是可以调用到的。
+
+##第18节：模块化操作
+###export :负责进行模块化，也是模块的输出。 生成模块
+###import : 负责把模块引，也是模块的引入操作。 引入模块
+###export的用法
+   [模块化操作](http://jspang.com/2017/06/03/es6/#18 "js胖博客地址")
+
+
