@@ -1,0 +1,1 @@
+ <img src="./img/q.png" alt="" ondragstart="return false;">
