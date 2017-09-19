@@ -431,6 +431,8 @@
     console.log(pro.name)//打印的是get函数执行的结果
     console.log(pro.name = 'cc');//这里打印的是set里面的返回值
 ###apply apply的作用是调用内部的方法，它使用在方法体是一个匿名函数时。
+	语法：函数名.apply(对象，数组(或者伪数组))
+	功能：1，调用该函数  2，将this指向第一个参数  3，将第二个参数的数组拆解成一个个的元素，依次作为函数的实参
     let target = function () {
         return 'I am JSPang';
     };
