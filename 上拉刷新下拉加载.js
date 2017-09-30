@@ -10,7 +10,11 @@
 //     transition: all .6 s;
 // }
 
-
+/* 
+ *这是老赵今日一刻yike-template里面的下拉刷新代码
+ *里面只控制了最外层大盒子 id="thelist"的ul
+ *有没有css影响 答案是应该会有
+ */
 //下边只是例子 没有一点复用性 完全是没有东西能提交了
 var scrollT; //这是被卷去的高度
 
@@ -48,7 +52,8 @@ $(document.body).on('touchmove', function(e) {
                 success: function(data) {
                     eval(data);
                     console.log(dat)
-                        // console.log(dataAll+":dataAll")
+
+                    // console.log(dataAll+":dataAll")
                     for (var i = 0; i < dat.result.length; i++) {
                         dataAll.result.push(dat.result[i])
                     }
