@@ -5,6 +5,7 @@
 	&lt;   小于号
 	&copy; 版权符号
 	&reg;  注册符号
+----具体参考w3school
 ##块级元素
 	address、blockquote、center、dir、div、dl、dt、dd、fieldset、form、h1~h6、hr、isindex、menu、
 	noframes、noscript、ol、p、pre、table、ul
