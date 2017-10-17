@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>echarts是真简单了</title>
+    <script src="./echarts.js"></script>
+    <style>
+        body {
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+        
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        ul::after,
+        ul::before {
+            content: '';
+            display: block;
+        }
+        
+        ul::after {
+            clear: both;
+        }
+        
+        li {
+            float: left;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+        }
+        
+        li:first-child {
+            margin-left: 35%;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>一月</li>
+        <li>二月</li>
+        <li>三月</li>
+    </ul>
+    <div id="main" style="width: 370px;height:300px;"></div>
+</body>
+<script>
+    var colors = ['#5793f3', '#d14a61', '#675bba'];
+    var app = echarts.init(document.getElementById('main'));
+
+    // app.title = '多 X 轴示例';
+    option = {
+        color: colors,
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                axis: 'x' //tooltip以X轴为基准线
+            }
+        },
+        legend: {
+            // width: 1,
+            // height: 1,
+            textStyle: {
+                color: 'pink'
+            },
+            data: [{
+                name: '2014 降水量',
+                icon: 'circle',
+            }, {
+                name: '2016 降水量',
+                icon: 'circle',
+            }, {
+                name: '2017 降水量',
+                icon: 'circle',
+            }]
+        },
+        grid: { //grid为大组件 box组件本图示就是在grid里面显示的
+            left: '-2%',
+            top: 40,
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            show: false,
+            type: 'category',
+            boundaryGap: false,
+            data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十一月', '十二月']
+        },
+        yAxis: [{
+            type: 'value',
+            position: 'right',
+            name: '10-11',
+            nameLocation: 'start',
+            axisLine: {
+                lineStyle: {
+                    width: 1,
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0,
+                            color: 'red' // 0% 处的颜色
+                        }, {
+                            offset: 1,
+                            color: 'blue' // 100% 处的颜色
+                        }],
+                        globalCoord: false // 缺省为 false
+                    },
+                }
+            },
+            axisLabel: {
+                // formatter: '{value} %',
+                formatter: function(value, index) {
+                    console.log(value)
+                    console.log(index)
+                    var texts = [];
+                    num = value * 100 + '%';
+                    texts.push(num);
+                    return texts;
+                    // return value.toFixed(1);;
+                }
+            }
+        }, {
+            name: '7-24',
+            nameLocation: 'end',
+            type: 'value',
+            inverse: true
+        }],
+        series: [{
+            name: '2014 降水量',
+            type: 'line',
+            // stack: '总量',
+            smooth: true,
+            data: [0.1, 0.40, 0.20, 0.30, 0.2, 0.13, 0.41, 0.1, 0.11, 0.4, 0.1, 0.31]
+        }, {
+            name: '2016 降水量',
+            type: 'line',
+            // stack: '总量',
+            smooth: true,
+            data: [0.2, 0.2, 0.55, 0.07, 0.88, 0.49, 0.05, 0.68, 0.19, 0.3, 0.23, 0.34]
+        }, {
+            name: '2017 降水量',
+            type: 'line',
+            // stack: '总量',
+            smooth: true,
+            data: [0.3, 0.9, 0.1, 0.7, 0.3, 1, 0.6, 0.6, 0.4, 0.4, 0.6, 0.7]
+        }]
+    };
+    app.setOption(option);
+    var lis = document.querySelectorAll('li');
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].index = i;
+        lis[i].onclick = function() {
+            var arr = [];
+            for (var i = 0; i < 12; i++) {
+                arr.push(Math.floor(Math.random() * 100) / 100)
+            }
+            option.series[this.index].data = arr
+            app.setOption(option);
+        }
+    }
+</script>
+
+</html>
