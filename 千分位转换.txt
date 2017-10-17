@@ -1,0 +1,39 @@
+
+<body>
+<a class="caption" href="#" data-title='Vulture' data-description='...'>
+        <input type="text" value="123456.12">
+    </a>
+</body>
+
+<script>
+    // 123456.12转成123,456.12
+
+    var num = 13;
+
+    function GetNumb(num) {
+        var numstr = num.toString();
+        var GetStr = function(str) {
+            if (str.length <= 3)
+                return str + ",";
+            else
+                return GetStr(str.slice(0, -3)) + GetStr(str.slice(-3));
+            /*GetStr(str.slice(0, -3) 是截取后需要再查找的一部分  GetStr(str.slice(-3)是被截掉的后半部分 查找完作为返回值拼接起来 */
+        }
+        if (numstr.match(/\./)) {
+            var arr = numstr.split(".");
+            return GetStr(arr[0]).slice(0, -1) + '.' + arr[1];
+        } else {
+            /* 没有点的时候 */
+            return GetStr(numstr).slice(0, -1)
+        }
+    }
+    console.log(GetNumb(num))
+    console.log(document.querySelector('input').value.replace(/\,/g, ''))
+    var input = document.querySelector('input');
+    input.onfocus = function() {
+        input.value = input.value.replace(/\,|\./g, '')
+    }
+    input.onblur = function() {
+        input.value = GetNumb(input.value)
+    }
+</script>
