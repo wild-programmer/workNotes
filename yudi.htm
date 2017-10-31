@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        
+        .box {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            background-color: #696969
+        }
+        /* 小雨滴 */
+        
+        .drop {
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+            animation: circleMiniGreen 1.5s cubic-bezier(.455, .03, .515, .955) infinite alternate;
+            position: relative;
+        }
+        
+        @-webkit-keyframes circleMiniGreen {
+            0% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+            50% {
+                -webkit-transform: scale(.8);
+                transform: scale(.8);
+                opacity: .8
+            }
+            75% {
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+                opacity: 1
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+        
+        @keyframes circleMiniGreen {
+            0% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+            50% {
+                -webkit-transform: scale(.8);
+                transform: scale(.8);
+                opacity: .8
+            }
+            75% {
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+                opacity: 1
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+        
+        .drop::after {
+            content: '';
+            display: block;
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
+            animation: circleMiniDoubleAfter 1.5s cubic-bezier(.455, .03, .515, .955) 1.8s infinite alternate;
+            border: 2px solid #00AC97;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            margin: auto;
+        }
+        
+        @-webkit-keyframes circleMiniDoubleAfter {
+            0% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                background: 0 0
+            }
+            50% {
+                -webkit-transform: scale(.8);
+                transform: scale(.8)
+            }
+            75% {
+                -webkit-transform: scale(.5);
+                transform: scale(.5);
+                opacity: 0;
+                background: #00AC97
+            }
+        }
+        
+        @keyframes circleMiniDoubleAfter {
+            0% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+                transform: translateX(-50%) translateY(-50%) scale(1);
+                background: 0 0
+            }
+            50% {
+                -webkit-transform: scale(.8);
+                transform: translateX(-50%) translateY(-50%) scale(.8)
+            }
+            75% {
+                -webkit-transform: scale(.5);
+                transform: translateX(-50%) translateY(-50%) scale(.5);
+                opacity: 0;
+                background: #00AC97
+            }
+        }
+        
+        .drop::before {
+            content: '';
+            display: block;
+            background: rgba(255, 255, 255, .2);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 100%;
+            animation: circleMiniGreenBefore 1.5s cubic-bezier(.455, .03, .515, .955) 1.65s infinite alternate;
+        }
+        
+        @-webkit-keyframes circleMiniGreenBefore {
+            0% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+            50% {
+                -webkit-transform: scale(.8);
+                transform: scale(.8);
+                opacity: .8
+            }
+            75% {
+                -webkit-transform: scale(1.7);
+                transform: scale(1.7)
+            }
+            100% {
+                opacity: 0
+            }
+        }
+        
+        @keyframes circleMiniGreenBefore {
+            0% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+            50% {
+                -webkit-transform: scale(.8);
+                transform: scale(.8);
+                opacity: .8
+            }
+            75% {
+                -webkit-transform: scale(1.7);
+                transform: scale(1.7)
+            }
+            100% {
+                opacity: 0
+            }
+        }
+        /* 大饼 */
+        
+        .cookie {
+            position: absolute;
+            left: 30%;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: #b4c6cd;
+            border-radius: 100%;
+            -webkit-transition: all .3s cubic-bezier(.4, 0, .2, 1) 750ms;
+            transition: all .3s cubic-bezier(.4, 0, .2, 1) 750ms;
+            background: rgba(0, 172, 151, .05);
+            -webkit-animation: circleMainScreen 5s cubic-bezier(.455, .03, .515, .955) infinite alternate;
+            animation: circleMainScreen 5s cubic-bezier(.455, .03, .515, .955) infinite alternate
+        }
+        
+        @-webkit-keyframes circleMainScreen {
+            0% {
+                -webkit-transform: none;
+                transform: none
+            }
+            25%,
+            75% {
+                -webkit-transform: scale(.9);
+                transform: scale(.9)
+            }
+            50% {
+                -webkit-transform: scale(1.05);
+                transform: scale(1.05)
+            }
+        }
+        
+        @keyframes circleMainScreen {
+            0% {
+                -webkit-transform: none;
+                transform: none
+            }
+            25%,
+            75% {
+                -webkit-transform: scale(.9);
+                transform: scale(.9)
+            }
+            50% {
+                -webkit-transform: scale(1.05);
+                transform: scale(1.05)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="drop"></span>
+        <div class="cookie"></div>
+    </div>
+</body>
+<script>
+</script>
+
+</html>
