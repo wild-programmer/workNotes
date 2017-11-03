@@ -8,12 +8,9 @@
     }
     console.log(tounicode('哎呦我的哥'));
 
-    function tohanzi(data) {
+    function tohanzi(str) {
         if (data == '') return '请输入十六进制unicode';
-        data = data.split("\\u");
-        var str = '';
-        for (var i = 0; i < data.length; i++) {
-            str += String.fromCharCode(parseInt(data[i], 16).toString(10));
-        }
-        return str;
+        str=str.replace(/\\/g,"%");
+  
+	return unescape(str);
     }
