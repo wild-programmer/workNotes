@@ -1,6 +1,8 @@
 禁止图片拖拽 
 <img src="./img/q.png" alt="" ondragstart="return false;">
 
+获取页面内容高度
+document.body.clientHeight
 
 属性
 设置图片的灰白度为100%灰
