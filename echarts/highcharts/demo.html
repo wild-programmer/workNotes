@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="zhex" style=" width:1200px;height:400px"></div>
+</body>
+<!-- jquery -->
+<script src="./build/js/jquery.js"></script>
+<!-- highcharts -->
+<script src="./build/js/highcharts.js "></script>
+<script src="./build/js/highcharts-zh_CN.js "></script>
+<script src="./highcarts.js"></script>
+<script>
+    var hightchar = new highcharSelect();
+    hightchar.line('#zhex', {
+        type: "area",
+        title: {
+            text: '至善基金',
+        },
+        area: [{
+            name: '小潘',
+            color: '#60C84C',
+            data: [1, 0, 3, 5, 3, 1, 2, 1]
+        }, {
+            name: '小张',
+            color: '#FFC23F',
+            fillColor: { // 设置渐变的填充颜色
+                linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                },
+                stops: [
+                    [0, Highcharts.getOptions().colors[6]],
+                    [1, Highcharts.Color(Highcharts.getOptions().colors[6]).setOpacity(0).get('rgba')]
+                ]
+            },
+            data: [0, 1, 4, 4, 5, 2, 3, 7]
+        }]
+    });
+</script>
+
+</html>
