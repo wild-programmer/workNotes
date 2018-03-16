@@ -2,6 +2,7 @@ function highcharSelect() {
     this.argument = {
         /* 默认参数配置项 */
         type: "line",
+        colors: ['#60C84C', '#FF6563', '#FFC23F', '#39527B'],
         xAxis: {
             categories: ['至善基金总部', '中时集团', '中时投资', '至善基金', '扬凯投资', '至善保险经纪',
                 '华华集团', '至善资产', '钱进家', '康乐旅行社', '扬凯资产', '棋至文化'
@@ -71,7 +72,6 @@ function highcharSelect() {
                 ]
             }],
             column: [{
-
                 name: '全日制本科',
                 data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
             }, {
@@ -215,62 +215,71 @@ function highcharSelect() {
             }
         }
     }
-    this.line = function(el, argument) {
-            var type = argument.type || this.argument.type
-            $(el).highcharts({
-                colors: ['#60C84C', '#FF6563', '#FFC23F', '#39527B'],
-                chart: this.option.chart[type],
-                title: argument.title || this.argument.title,
-                subtitle: {
-                    text: ' '
-                },
-                yAxis: {
-                    title: {
-                        text: argument.yAxis || this.argument.yAxis.title,
-                        rotation: 0,
-                        offset: 0,
-                        align: 'high',
-                        y: -20,
-                        x: 0
-                    }
-                },
-                xAxis: argument.xAxis || this.argument.xAxis,
-                legend: this.option.legend[type] || this.option.legend.also,
-
-                credits: {
-                    enabled: false //隐藏heigchatslogo
-                },
-
-                tooltip: this.option.tooltip[type],
-                plotOptions: {
-                    [type]: this.option.plotOptions[type]
-                },
-                series: argument.data || this.argument.series[type],
-                navigation: {
-                    menuItemStyle: {
-                        borderLeft: '20px solid #E0E0E0'
-                    },
-                    menuItemHoverStyle: {
-                        fontWeight: 'bold',
-                        background: 'none',
-                        color: 'black'
-                    }
-                },
-                responsive: { //不清楚的配置
-                    rules: [{
-                        condition: {
-                            maxWidth: 500
-                        },
-                        chartOptions: {
-                            legend: {
-                                layout: 'horizontal',
-                                align: 'center',
-                                verticalAlign: 'bottom'
-                            }
-                        }
-                    }]
+    this.map = function(el, argument) {
+        var type = argument.type || this.argument.type
+        $(el).highcharts({
+            colors: argument.colors || this.argument.colors,
+            chart: this.option.chart[type],
+            title: argument.title || this.argument.title,
+            subtitle: {
+                text: ' '
+            },
+            yAxis: {
+                title: {
+                    text: argument.yAxis || this.argument.yAxis.title,
+                    rotation: 0,
+                    offset: 0,
+                    align: 'high',
+                    y: -20,
+                    x: 0
                 }
-            })
-        }
-        /* 折线面积图 */
+            },
+            xAxis: argument.xAxis || this.argument.xAxis,
+            legend: this.option.legend[type] || this.option.legend.also,
+
+            credits: {
+                enabled: false //隐藏heigchatslogo
+            },
+            exporting: { //显示导出功能
+                enabled: true,
+                buttons: {
+                    contextButton: {
+                        align: 'right',
+                        text: '导出',
+                        verticalAlign: 'top',
+                        symbolStroke: 'rgb(96, 200, 76)',
+                    }
+                }
+            },
+            tooltip: this.option.tooltip[type],
+            plotOptions: {
+                [type]: this.option.plotOptions[type]
+            },
+            series: argument.data || this.argument.series[type],
+            navigation: {
+                menuItemHoverStyle: { //当鼠标划过导出菜单项目时的样式配置 
+                    background: 'rgba(96, 200, 76,.6)',
+                    color: 'black'
+                },
+                menuStyle: {
+                    background: '#ffffff'
+                }
+            },
+            responsive: { //响应式图表配置
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
+            }
+        })
+    }
+
 }

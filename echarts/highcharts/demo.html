@@ -10,16 +10,19 @@
 
 <body>
     <div id="zhex" style=" width:1200px;height:400px"></div>
+    <!-- 自定义导出按钮 -->
+    <button onclick="SJFXClick()">导出</button>
 </body>
 <!-- jquery -->
 <script src="./build/js/jquery.js"></script>
 <!-- highcharts -->
-<script src="./build/js/highcharts.js "></script>
-<script src="./build/js/highcharts-zh_CN.js "></script>
+<script src="./build/highcharts/highcharts.js"></script>
+<script src="./build/highcharts/exporting.js"></script>
+<script src="./build/highcharts/highcharts-zh_CN.js"></script>
 <script src="./highcarts.js"></script>
 <script>
     var hightchar = new highcharSelect();
-    hightchar.line('#zhex', {
+    hightchar.map('#zhex', {
         type: "area",
         title: {
             text: '至善基金',
@@ -44,8 +47,19 @@
                 ]
             },
             data: [0, 1, 4, 4, 5, 2, 3, 7]
-        }]
+        }],
+
+        exporting: {
+            enabled: true
+        }
     });
+    //导出图表按钮  
+    function SJFXClick() {
+        chart = $('#zhex').highcharts();
+        chart.exportChart({
+            exportFormat: 'PNG'
+        });
+    }
 </script>
 
 </html>
