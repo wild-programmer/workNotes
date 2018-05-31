@@ -58,3 +58,29 @@
 
     console.log(UA);
 })();
+
+//平台、设备和操作系统
+var system = {
+
+            win: false,
+
+            mac: false,
+
+            xll: false
+
+};
+
+//检测平台
+var p = navigator.platform;
+system.win = p.indexOf("Win") == 0;
+system.mac = p.indexOf("Mac") == 0;
+system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+if (system.win || system.mac || system.xll) {
+            // <!-- pc站 -->
+            alert(1121211)
+} else {
+            // <!-- 移动站 -->
+            alert(454545454)
+            window.location.href = "http://192.168.1.51/smile/zhilian/pcv2/view/agent.html";
+}
+
