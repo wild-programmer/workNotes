@@ -119,16 +119,20 @@
 	console.log(blog.indexOf(cc)); //ES5的方法是 返回的是6
 	console.log(blog.includes(cc)) //直接返回true
 ###判断开头是否存在：		
+
 	blog.startsWith(cc);
 ###判断结尾是否存在：
+
 	blog.endsWith(cc);
 	!!starts和ends 后边都要加s
 ###复制字符串		
+
 	document.write('cc,'.repeat(3));
 
 
 ##第6节：ES6数字操作
 ###二进制和八进制
+
     <!-- Binary -->
     let binary = 0B010101;//21
     <!-- Ovtal -->
@@ -162,6 +166,7 @@
 
 ##第7节：数组
 ###JSON数组格式转换
+
     <!-- json数组格式 -->
     let  json = {
         '0': 'jspang',
@@ -180,6 +185,7 @@
     
 ###find()实例方法：
 ####什么是实例方法：是已经实例出来对象的方法，不需要调用Array对象
+
     <!-- 查找字符串里面的值，满足条件就在找到的第一个地方停止 -->
     var arr =[1,2,3,4,5,6]
     console.log(arr.find(function(value, index, arr) {
@@ -229,13 +235,17 @@
     <!-- 数组的遍历方法 -->
 ###数组的遍历
 ####forEach遍历
+
     let arr=['jspang','技术胖','cc'];    
     arr.forEach((val,index)=>console.log(index,val));
 ####.filter遍历
+
     arr.filter(x=>console.log(x));
 ####.some遍历
+
     arr.some(x=>console.log(x));
 ####.map遍历
+
     arr.map(x => console.log(x));
     <!-- 数组遍历替换 -->
     console.log(arr.map(x=>'web'));
@@ -418,17 +428,22 @@
     console.log(map.get(json));
     
 ###删除delete
+
     map.delete(json);
 ###size属性
+
     console.log(map.size) //打印map对象的长度  从0开始
 ###查找是否存在某值 has
+
     查找的是key值
     map.set('jspang',json);
     console.log(map.has('jspang'));
 ###清除所有的元素 clear
+
     map.clear()
 ##第15节:用Proxy进行预处理 
 ###get set是得到会要改变对象属性值时预处理的方法
+
     proxy为代理的意思   是es6用它增强对象和函数的方法
     //es5定义对象的方法
     let obj={
@@ -478,6 +493,7 @@
     
     console.log(pro());
 ##第16节 promise对象的使用
+
     解决回调地狱
     let state=1;
  
@@ -521,6 +537,7 @@
         return val;
     });
 ##第17节：class类的使用
+
     类里面是方法和函数
     声明类
     class Coder{
@@ -545,6 +562,7 @@
     let cc1 = new Coder;
     cc1.skill('web');
 ###类的参数传递
+
     类参数传递 eg: new Coder('val')  
     与类里面方法的参数传递区分开eg：cc1.skill('web')
     <br> 
@@ -562,6 +580,7 @@
     let cc=new Coder(1,2);
     console.log(cc.add());  
 ###class的继承 
+
     类的一大特点就是继承
     class htmler extends Coder{}
     
