@@ -186,11 +186,14 @@
         return value > 2;
     })) 
 ###第8节：fill( )实例方法：
+
     <!-- 数组填充 它接收三个参数，第一个参数是填充的变量，第二个是开始填充的位置，第三个是填充到的位置 -->
     var arr4 = [0, 1, 2, 3, 4, 5, 6];
     arr4.fill('cc', 1, 2);
     document.write(arr4) //输出 [0, "cc", 2, 3, 4, 5, 6]
+    
 ###for…of循环
+
     let arr5 = ['jspang', '技术胖', '逼逼叨']
     for (let item of arr5) {
         console.log(index, item)//只输出值
@@ -204,7 +207,9 @@
     for (let [index, value] of arr5.entries()) {
         console.log(index, value)//分来输出值和索引
     }
+    
 ###entries( )实例方法
+
     <!-- entries()实例方式生成的是Iterator形式的数组，那这种形式的好处就是可以让我们在需要时用next()手动跳转到下一个值。进行手动遍历 -->
     let arr=['jspang','技术胖','逼逼叨']
     let list=arr.entries();
@@ -213,7 +218,9 @@
     console.log(list.next().value);
     console.log('执行完这个，再继续遍历')
     console.log(list.next().value);
+    
 ###in的方法
+
     let arr=[,,,,,];
     console.log(arr.length); 
     //上边的代码输出了5，但是数组中其实全是空值，这就是一个坑 ES6的in就可以解决这个问题   
@@ -247,6 +254,7 @@
     console.log('几个参数:' + add.length)
 
 ###箭头函数
+
     <!-- 箭头函数中不可加new，也就是说箭头函数不能当构造函数进行使用。 -->
     var add11 = (a, b = 1) => a + b //只有一行执行逻辑的代码时不用带括号
     console.log(add11(1))
@@ -256,6 +264,7 @@
     }
     console.log(add11(1,3))
 ###第10节：对象|数组的函数结构
+
     let obj={a:'cc',b:'qizhi'} 
     let arr=['cc','qizhi'];
     function fun({a,b='qizhi'}){
@@ -265,6 +274,7 @@
     fun(arr) //cc qizhi
 
 ### in的用法
+
     <!-- in是用来判断对象或者数组中是否存在某个值的 -->
     let obj = {
         a: 'cc',
@@ -283,12 +293,14 @@
 
 ##第11节：ES6对象
 ###对象的赋值
+
     变量直接赋值给对象
     let name="cc";
     let skill= 'web';
     var obj= {name,skill}; //键和值都是变量
     console.log(obj);  //Object {name: "cc", skill: "web"}
 ###对象Key值的变量构建
+
     key允许变量 构建
     let key='skill';
     var obj={
@@ -296,6 +308,7 @@
     }
     console.log(obj.skill); //obj {skill:"web}
 ###Object.is()对象值的比较
+
     var obj1 = {name:'jspang'};
     var obj2 = {name:'jspang'};
     console.log(obj1.name === obj2.name);//true
@@ -308,6 +321,7 @@
     ===为同值相等  is()为严格相等
 
 ###Object.assign()合并对象
+
     var a={name:'cc'};
     var b={age:18};
     var c={stature:'180cm'};    
@@ -315,6 +329,7 @@
     console.log(d);
 
 ###第12节：Symbol在对象中的应用
+
     使用Symbol来进行数据保护
     let obj = { name: 'cc', skill: 'web' };
     let age = Symbol();
@@ -326,10 +341,12 @@
     console.log(obj[age]);  //18
 
 ###第13节：Set和WeakSet数据结构
+
     set是一个数组结构  最重要的是去重
     let setArr = new Set(['cc', 'web', 18, 18])
     console.log(setArr) // Set(3) {"cc", "web", 18}
 ####Set值的增删查
+
     //add
     setArr.add('前端职场'); //不能增加重复的 会报错
     //delete
@@ -338,16 +355,24 @@
     console.log(setArr.has('cc'));//true
     //.clear  删除全部
     setArr.clear();
+    
 ####set的循环
+
     //for…of…循环：
     for (let item of setArr){
         console.log(item);
     }
+    
 ####size属性
+
     console.log(setArr.size); //3  18去重了一个
+    
 ####forEach循环
+
     setArr.forEach((value)=>console.log(value));
+    
 ####WeakSet的声明
+
     set是一个数组结构  weakSet就是一个对象版的set
     不能直接在new 的时候就放入值，将报错 eg let weakObj=new WeakSet({a:'cc',b:'wd'});//报错
     let weakObj=new WeakSet();
@@ -370,6 +395,7 @@
 
 ##第14节：map数据结构
 ###json和map的对比
+
     Map的灵活性要更好，你可以把它看成一种特殊的键值对，但你的key可以设置成数组，值也可以设置成字符串，让它不规律对应起来。
     给 var map赋值 key为对象  value为字符串
     let json = {
@@ -384,10 +410,13 @@
     当然也可key字符串，value是对象。我们调换一下位置，依然是符合map的数据结构规范的。  
     map.set('jspang',json);
     console.log(map);
+    
 ###map的增删查取
 ###取值get
+
     获取json对应的value值 (json对象是key值)
     console.log(map.get(json));
+    
 ###删除delete
     map.delete(json);
 ###size属性
@@ -431,6 +460,7 @@
     console.log(pro.name)//打印的是get函数执行的结果
     console.log(pro.name = 'cc');//这里打印的是set里面的返回值
 ###apply apply的作用是调用内部的方法，它使用在方法体是一个匿名函数时。
+
 	语法：函数名.apply(对象，数组(或者伪数组))
 	功能：1，调用该函数  2，将this指向第一个参数  3，将第二个参数的数组拆解成一个个的元素，依次作为函数的实参
     let target = function () {
